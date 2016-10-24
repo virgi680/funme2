@@ -1,0 +1,65 @@
+INSTALAR MYSQL:
+sudo apt-get install mysql-server
+
+LANZAR BASE DE DATOS: (usuario y contraseña para acceder a la base de datos poner usuario root y password 1234).
+sudo mysql -u root -p
+>>Enter password:
+  1234
+
+Comandos mysql:
+
+VER BASES DE DATOS:
+>>	show databases;
+
+CREAR BASE DE DATOS:
+>>	create database funme;
+
+BORRAR BASE DE DATOS O TABLAS:
+>>	DROP TABLE usuario;
+>>	DROP DATABASE funme;
+
+USAR BASE DE DATOS CREADA:
+>>	use funme;
+
+
+CREAR TABLAS CON COLUMNAS: (copiar pegar los comandos siguientes):
+CREATE TABLE usuario(
+ID_usuario  	int(16) auto_increment,
+EMAIL       	VARCHAR(100) NOT NULL UNIQUE,
+PASSWORD    	VARCHAR(100),
+NOMBRE       	VARCHAR(100),
+APELLIDO    	VARCHAR(100),
+fechaNacimiento VARCHAR(100),        
+genero  	VARCHAR(5),
+PRIMARY KEY (ID_usuario)
+);
+
+
+
+CREATE TABLE eventos(
+ID_evento int(16) auto_increment,
+CREADOR VARCHAR(100),
+AFORO INT(16) NOT NULL,
+DIA VARCHAR(100) NOT NULL,
+HORA VARCHAR(100) NOT NULL,
+NOMBRE VARCHAR(100) NOT NULL,
+LUGAR VARCHAR(100) NOT NULL,
+CATEGORIA VARCHAR(100) NOT NULL,
+DESCRIPCION VARCHAR(100),
+EMAIL VARCHAR(100) NOT NULL UNIQUE,
+PRIMARY KEY (ID_evento)
+);
+
+VER TABLAS CREADAS:
+>>	show tables;
+
+Ejemplos:
+INSERTAR UNA FILA:
+>>	insert into usuario(id_usuario,email,password,nombre,apellido,fechaNacimiento,genero)values('1','nforcen@gmail.com','1234','nacho','forcen','28/03','m');
+
+
+VER DATOS: (selecciona todo de la tabla usuario).
+>>	select * from usuario;
+
+SELECCIONAR UNA FILA DETERMINADA EN FUNCIÓN DE SU ID:
+>>	select * from usuario where id_usuario like '1';
