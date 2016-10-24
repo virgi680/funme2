@@ -25,7 +25,7 @@ app.controller('controlador', ['$scope','$http', function($scope, $http) {
 										genero : $scope.genero
 									};
 								var mes = $scope.fecha.getMonth()+1;
-								insertarEv.fecha = $scope.fecha.getDate() + "/" + mes + "/" + $scope.fecha.getFullYear(); 
+								registro.fecha = $scope.fecha.getDate() + "/" + mes + "/" + $scope.fecha.getFullYear(); 
 								var posicion_x; 
 								var posicion_y; 
 								posicion_x=(screen.width/2)-(400/2); 
@@ -35,7 +35,7 @@ app.controller('controlador', ['$scope','$http', function($scope, $http) {
 								.success(function(data) {
 									window.open('popup-exito.html', this.target, 'width=400,height=300,left='+posicion_x+',top='+posicion_y+'')
 								}).error(function(data) {
-									window.open('popup-exito.html', this.target, 'width=400,height=300,left='+posicion_x+',top='+posicion_y+'')
+									window.open('popup-error.html', this.target, 'width=400,height=300,left='+posicion_x+',top='+posicion_y+'')
 								});
 							}
 						}

@@ -84,6 +84,20 @@
     <label for="nombre">Nombre*</label>
     <input class="form-control input-sm" ng-model="nombre" type="text" id="nombre" name="nombre" required>
   </div>
+    <div class="form-group">
+    <label for="nombre">Intereses*</label>
+    <select class="form-control" ng-model="inte" id="interes"
+								name="interes" required>
+								<option>Deportes</option>
+								<option>Idiomas</option>
+								<option>Cultura</option>
+							</select>
+  </div>
+  <div class="form-group">
+    <label for="nombre">Descripcion*</label>
+    <textarea class="form-control input-sm" ng-model="desc" type="text" id="desc" name="desc" rows="10" cols="40" required>
+    Escribe una descripcion</textarea>
+  </div>
      <div class="form-group">
 <center>
 	<button type="button" ng-click="cancelar()">Cancelar</button>

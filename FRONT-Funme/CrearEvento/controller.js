@@ -29,7 +29,7 @@ app.controller('controlador', ['$scope','$http', function($scope, $http) {
 							.success(function(data) {
 								window.open('popup-exito.html', this.target, 'width=400,height=343,left='+posicion_x+',top='+posicion_y+'')
 							}).error(function(data) {
-								window.open('popup-exito.html', this.target, 'width=400,height=343,left='+posicion_x+',top='+posicion_y+'')
+								window.open('popup-error.html', this.target, 'width=400,height=343,left='+posicion_x+',top='+posicion_y+'')
 							});
 						}
 					}
