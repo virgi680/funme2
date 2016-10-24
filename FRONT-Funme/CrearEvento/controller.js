@@ -23,12 +23,13 @@ app.controller('controlador', ['$scope','$http', function($scope, $http) {
 							var posicion_x; 
 							var posicion_y; 
 							posicion_x=(screen.width/2)-(400/2); 
-							posicion_y=(screen.height/2)-(300/2); 
-							$http.post('http://localhost:8080/funme/crearEvento',insertarEv)
+							posicion_y=(screen.height/2)-(180/2);
+
+							$http.post('http://localhost:8080/funme/crearEvento?dia='+insertarEv.dia+'&hora='+insertarEv.hora+'&lugar='+insertarEv.lugar+'&nombre='+insertarEv.nombre)
 							.success(function(data) {
-								window.open('popup-exito.html', this.target, 'width=400,height=300,left='+posicion_x+',top='+posicion_y+'')
+								window.open('popup-exito.html', this.target, 'width=400,height=343,left='+posicion_x+',top='+posicion_y+'')
 							}).error(function(data) {
-								window.open('popup-exito.html', this.target, 'width=400,height=300,left='+posicion_x+',top='+posicion_y+'')
+								window.open('popup-exito.html', this.target, 'width=400,height=343,left='+posicion_x+',top='+posicion_y+'')
 							});
 						}
 					}
