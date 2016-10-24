@@ -25,11 +25,32 @@
 	margin-top: 50px;
 }
 
-
-input:invalid {
-	border: 1px solid red;
+.typeahead, .tt-query, .tt-hint {
+	height: 33px;
+	line-height: 33px;
+	outline: medium none;
+	width: 660px;
 }
-		
-input:valid {
-	border: 1px solid green;
+.typeahead {
+	background-color: #FFFFFF;
+}
+
+.tt-hint {
+	color: #999999;
+}
+.tt-menu {
+	background-color: #FFFFFF;
+	border: 1px solid rgba(0, 0, 0, 0.2);
+	border-radius: 8px;
+	margin-top: 12px;
+	padding: 8px 0;
+	width: 422px;
+}
+.tt-suggestion {
+	padding: 3px 10px;
+}
+.tt-suggestion:hover {
+	cursor: pointer;
+	background-color: #0097CF;
+	color: #FFFFFF;
 }

@@ -30,6 +30,8 @@
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
+<script  type="text/javascript" src="typeahead.bundle.js"></script>
+
  
 </head>
 <body class="colorsito" ng-controller="controlador">
@@ -74,12 +76,9 @@
 
     <div class="form-group">
     <label for="nombre">Lugar*</label>
-    <select class="form-control" ng-model="inte" id="interes"
-								name="interes" required>
-								<option>Madrid</option>
-								<option>Badajoz</option>
-								<option>Barcelona</option>
-							</select>
+    <div>
+    	<input type="text" class="form-control typeahead tt-query" autocomplete="off" spellcheck="false">
+	</div>
   </div>
     <div class="form-group">
     <label for="nombre">Intereses*</label>
