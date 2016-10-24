@@ -5,11 +5,8 @@
 var app = angular.module('app', [])
 app.controller('controlador', ['$scope','$http', function($scope, $http) {
 					$scope.cancelar = function() {
-						open('login.html');
+						location.href="../index.html";
 					}
-					$scope.close = function () {
-						window.close();
-					};
 					$scope.guardarRegistro = function() {
 						if($scope.password != $scope.rpassword){
 							alert("Las passwords deben de coincidir");
@@ -33,9 +30,9 @@ app.controller('controlador', ['$scope','$http', function($scope, $http) {
 
 								$http.post('http://localhost:8080/funme/guardarRegistro?email='+registro.email+'&password='+registro.password+'&nombre='+registro.nombre+'&apellidos='+registro.apellidos+'&fecha='+registro.fecha+'&genero='+registro.genero)
 								.success(function(data) {
-									window.open('popup-exito.html', data.target, 'width=400,height=300,left='+posicion_x+',top='+posicion_y+'')
+									$("#ok").modal();
 								}).error(function(data) {
-									window.open('popup-error.html', data.target, 'width=400,height=300,left='+posicion_x+',top='+posicion_y+'')
+									$("#err").modal();
 								});
 							}
 						}
