@@ -1,9 +1,9 @@
-
+    
 .colorsito
 {
 /* Ubicación de la imagen */
 
-	  background-image: url(IMG/bgris.jpg);
+	  background-image: url(../IMG/bgris.jpg);
 
 	  background-position: center center;
 
@@ -17,13 +17,19 @@
 	
 }
 
-.footer {
 
-} 
 .color {
 	color: white;
 }
 .espacio {
-	margin-top: 130px;
+	margin-top: 50px;
 }
 
+
+input:invalid {
+	border: 1px solid red;
+}
+		
+input:valid {
+	border: 1px solid green;
+}
