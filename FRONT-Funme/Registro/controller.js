@@ -33,9 +33,9 @@ app.controller('controlador', ['$scope','$http', function($scope, $http) {
 
 								$http.post('http://localhost:8080/funme/guardarRegistro?email='+registro.email+'&password='+registro.password+'&nombre='+registro.nombre+'&apellidos='+registro.apellidos+'&fecha='+registro.fecha+'&genero='+registro.genero)
 								.success(function(data) {
-									window.open('popup-exito.html', this.target, 'width=400,height=300,left='+posicion_x+',top='+posicion_y+'')
+									window.open('popup-exito.html', data.target, 'width=400,height=300,left='+posicion_x+',top='+posicion_y+'')
 								}).error(function(data) {
-									window.open('popup-error.html', this.target, 'width=400,height=300,left='+posicion_x+',top='+posicion_y+'')
+									window.open('popup-error.html', data.target, 'width=400,height=300,left='+posicion_x+',top='+posicion_y+'')
 								});
 							}
 						}
