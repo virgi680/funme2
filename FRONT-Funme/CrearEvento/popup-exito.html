@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es" ng-app="app" >
 <head>
-    <title>Crear Evento</title>
+    <title>Evento creado</title>
   <!-- Angular Material style sheet -->
   <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
 
@@ -33,31 +33,16 @@
  
 </head>
 <body ng-controller="controlador">
+    <center>
 
 <div class="colorsito">
   <div class="container-fluid ">
- <nav class="navbar navbar-default navbar-fixed-top">
-
-    <div class="navbar-header">
-      <a href="../index.html" > <img class="img-thumbnail" src="../IMG/logo.png" width="135" height="135"></a>
-    </div>
-    <ul class="nav navbar-nav">
-      <li><a href="#">Page 1</a></li>
-      <li><a href="#">Page 2</a></li>
-    </ul>
-    <ul class="nav navbar-nav navbar-right">
-      <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-      <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-    </ul>
-
-</nav>
   </div>
  <div class="container espacio">
  <div class="row">
   <div class="container col-sm-4 "></div>
       <div class="container color col-sm-4">
-    <h1>Crear Evento</h1>      
-    <p>Rellena los campos (Campos * obligatorios):</p>
+    <h1>Evento creado</h1>      
     </div>
      <div class="container col-sm-4"></div>
  </div>
@@ -66,38 +51,15 @@
  <div class="row espaciot ">
  <div class="container col-sm-4 sidenav"></div>
  <div class = "container jumbotron col-sm-4 ">
-    
-  <form name="crearEvento">
-  <div class="form-group">
-    <label for="dia">Dia*</label>
-    <input class="form-control input-sm" ng-model="dia" type="date" id="dia" name="dia" placeholder="dd/mm/aaaa" title="Formato incorrecto. Ajustese al formato dd/mm/aaaa" required>
-  </div>
-    <div class="form-group">
-    <label for="hora">Hora*</label>
-    <input class="form-control input-sm" ng-model="hora" type="time" id="hora" name="hora" placeholder="hh:mm" title="Formato incorrecto. Ajustese al formato hh:mm" required>
-  </div>
-    <div class="form-group">
-    <label for="lugar">Lugar*</label>
-    <input class="form-control input-sm" ng-model="lugar" type="text" id="lugar" name="lugar" required>
-  </div>
-  <div class="form-group">
-    <label for="nombre">Nombre*</label>
-    <input class="form-control input-sm" ng-model="nombre" type="text" id="nombre" name="nombre" required>
-  </div>
-     <div class="form-group">
-  <input type="button" ng-click="cancelar()" value="Cancelar" />
-  <input type="button" ng-click="insertEvent()" value="Guardar" ng-disabled="valid" />
-</div>
-</div>
-</form>
-
+    <p>Se ha creado el evento correctamente</p>
+    	<input type="button" ng-click="close()" value="Cerrar" align="center" />
     </div>
     <div class="col-sm-4 sidenav">
-
-
     </div>
   </div>
 </div>
 </div>
+    </center>
+
 </body>
 </html>
