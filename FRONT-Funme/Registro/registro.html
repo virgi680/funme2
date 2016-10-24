@@ -73,61 +73,48 @@
 
  <form name="registro">
   <div class="form-group">
-    <label for="email">Email:</label>
-    <input class="form-control input-sm" type="email" id="email" ng-model="email" name="email" required>
+    <label for="email">Email*</label>
+    <input class="form-control input-sm" type="email" id="email" ng-model="email" name="email" placeholder="ejemplo@dominio.com" required>
   </div>
     <div class="form-group">
-    <label for="password">Password:</label>
+    <label for="password">Password*</label>
     <input type="password" class="form-control input-sm" id="password" ng-model="password" name="password" required>
   </div>
     <div class="form-group">
-    <label for="rpassword">Repetir Password:</label>
+    <label for="rpassword">Repetir Password*</label>
     <input type="password" class="form-control input-sm" id="rpassword" ng-model="rpassword" name="rpassword" required>
   </div>
   <div class="form-group">
-    <label for="nombre">Nombre:</label>
+    <label for="nombre">Nombre*</label>
     <input type="nombre" class="form-control input-sm" id="nombre" ng-model="nombre" name="nombre" required>
   </div>
     <div class="form-group">
-    <label for="apellidos">Apellidos:</label>
+    <label for="apellidos">Apellidos*</label>
     <input type="apellidos" class="form-control input-sm" id="apellidos" ng-model="apellidos" name="apellidos" required>
   </div>
       <div class="form-group">
-    <label for="fecha">Fecha de nacimiento:</label>
-    <input type="date" class="form-control input-sm" id="fecha" ng-model="fecha" name="fecha" required>
+    <label for="fecha">Fecha de nacimiento*</label>
+    <input type="date" class="form-control input-sm" id="fecha" ng-model="fecha" name="fecha" placeholder="dd/mm/aaaa" required>
   </div>
       <div class="form-group">
-    <label for="genero" required>Sexo:</label>
+    <label for="genero" required>Sexo*</label>
    <label class="radio-inline"><input type="radio" ng-model="genero" id="genero" name="genero" value="Hombre" required>Hombre</label>
      <label class="radio-inline"><input type="radio" ng-model="genero" id="genero" name="genero" value="Mujer" required>Mujer</label>
   </div>
  <div class="form-group checkbox">
-    <label><input type="checkbox" id="terminos" name="terminos" value="terminos" ng-model="terminos" required> Acepto los terminos y condiciones</label>
+    <label><input type="checkbox" id="terminos" name="terminos" value="terminos" ng-model="terminos" required> Acepto los terminos y condiciones*</label>
   </div>
    <div>
-  <button type="submit" ng-click="guardarRegistro()">Guardar</button>
-  <button type="reset">Restablecer campos</button>
-   <button type="button" ng-click="insertUser()">INFO</button>
-<ul>
-
-    {{ registro.name}}
-
-</ul>
+   <center>
+      <button type="button" ng-click="cancelar()">Cancelar</button>
+	  <button type="submit" ng-click="guardarRegistro()">Guardar</button>
+	  <button type="reset">Restablecer campos</button>
+   </center>
   </div>
 </form>
-
 </div>
-
 <div class="container col-sm-4 sidenav"></div>
-
 </div>
-
-</div>
-
- 
-
-<div class="navbar navbar-default navbar-fixed-bottom text-center" >
-  <p>Footer Text</p>
 </div>
 </div>
 </body>
