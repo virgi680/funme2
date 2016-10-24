@@ -27,5 +27,19 @@ app.controller('controlador', ['$scope','$http', function($scope, $http) {
 	        name: 'provincias',
 	        source: provincias
 	    });
-	});  
+	});
+	$scope.buscarEvent = function() {
+			var buscarEv = {
+					interes : $scope.interes,
+					lugar : $scope.lugar
+				};
+			
+			$http.post('http://localhost:8080/funme/buscarEventos?interes='+buscarEv.interes+'&lugar='+buscarEv.lugar)
+			.success(function(data) {
+				location.href="../eventos.html";
+			}).error(function(data) {
+				$("#err").modal();
+			});
+
+	}
 	} ]);
