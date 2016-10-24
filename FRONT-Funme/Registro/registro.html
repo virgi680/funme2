@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es" ng-app="app" >
+<head>
+    <title>Registro</title>
+  <!-- Angular Material style sheet -->
+  <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
+
+     <!-- Bootstrap Css Library -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="registro.css">
+  <!-- Angular Material requires Angular.js Libraries -->
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
+
+  <!-- Angular Material Library -->
+  <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>  <!-- Angular Material requires Angular.js Libraries -->
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
+
+  <!-- Angular Material Library -->
+  <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+ <script src="controller.js"></script> 
+  
+   <!-- Bootstrap Material Library -->
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+</head>
+
+<body ng-controller="controlador">
+
+<div class="colorsito">
+  <div class="container-fluid ">
+ <nav class="navbar navbar-default navbar-fixed-top">
+
+    <div class="navbar-header">
+      <a href="../index.html" > <img class="img-thumbnail" src="../IMG/logo.png" width="135" height="135"></a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li><a href="#">Page 1</a></li>
+      <li><a href="#">Page 2</a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+      <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+    </ul>
+
+</nav>
+  </div>
+
+ 
+
+ <div class="container">
+ <div class="row espacio">
+  <div class="container col-sm-4 "></div>
+      <div class="container color col-sm-4">
+    <h1>Registro</h1>      
+    <p>Rellena con tus datos (Campos * obligatorios):</p>
+    </div>
+     <div class="container col-sm-4"></div>
+ </div>
+ </div>   
+ 
+  <div class="container">
+ <div class="row espaciot">
+ <div class="container col-sm-4 sidenav"></div>
+ <div class = "container jumbotron col-sm-4 ">
+
+ <form name="registro">
+  <div class="form-group">
+    <label for="email">Email:</label>
+    <input class="form-control input-sm" type="email" id="email" ng-model="email" name="email" required>
+  </div>
+    <div class="form-group">
+    <label for="password">Password:</label>
+    <input type="password" class="form-control input-sm" id="password" ng-model="password" name="password" required>
+  </div>
+    <div class="form-group">
+    <label for="rpassword">Repetir Password:</label>
+    <input type="password" class="form-control input-sm" id="rpassword" ng-model="rpassword" name="rpassword" required>
+  </div>
+  <div class="form-group">
+    <label for="nombre">Nombre:</label>
+    <input type="nombre" class="form-control input-sm" id="nombre" ng-model="nombre" name="nombre" required>
+  </div>
+    <div class="form-group">
+    <label for="apellidos">Apellidos:</label>
+    <input type="apellidos" class="form-control input-sm" id="apellidos" ng-model="apellidos" name="apellidos" required>
+  </div>
+      <div class="form-group">
+    <label for="fecha">Fecha de nacimiento:</label>
+    <input type="date" class="form-control input-sm" id="fecha" ng-model="fecha" name="fecha" required>
+  </div>
+      <div class="form-group">
+    <label for="genero" required>Sexo:</label>
+   <label class="radio-inline"><input type="radio" ng-model="genero" id="genero" name="genero" value="Hombre" required>Hombre</label>
+     <label class="radio-inline"><input type="radio" ng-model="genero" id="genero" name="genero" value="Mujer" required>Mujer</label>
+  </div>
+ <div class="form-group checkbox">
+    <label><input type="checkbox" id="terminos" name="terminos" value="terminos" ng-model="terminos" required> Acepto los terminos y condiciones</label>
+  </div>
+   <div>
+  <button type="submit" ng-click="guardarRegistro()">Guardar</button>
+  <button type="reset">Restablecer campos</button>
+   <button type="button" ng-click="insertUser()">INFO</button>
+<ul>
+
+    {{ registro.name}}
+
+</ul>
+  </div>
+</form>
+
+</div>
+
+<div class="container col-sm-4 sidenav"></div>
+
+</div>
+
+</div>
+
+ 
+
+<div class="navbar navbar-default navbar-fixed-bottom text-center" >
+  <p>Footer Text</p>
+</div>
+</div>
+</body>
+</html>

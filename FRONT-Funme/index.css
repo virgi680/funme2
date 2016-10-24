@@ -1,0 +1,29 @@
+
+.colorsito
+{
+/* Ubicación de la imagen */
+
+	  background-image: url(IMG/bgris.jpg);
+
+	  background-position: center center;
+
+	  background-repeat: no-repeat;
+
+	  background-attachment: fixed;
+
+	  background-size: cover;
+
+	  background-color: #464646;
+	
+}
+
+.footer {
+
+} 
+.color {
+	color: white;
+}
+.espacio {
+	margin-top: 40px;
+}
+
