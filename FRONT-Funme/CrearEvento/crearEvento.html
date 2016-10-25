@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es" ng-app="app" >
 <head>
-<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1' />
+<meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
 
     <title>Crear Evento</title>
   <!-- Angular Material style sheet -->
@@ -83,7 +83,7 @@
     <input class="form-control input-sm" ng-model="lugar" type="text" id="lugar" name="lugar" required>
   </div>
   <div class="form-group">
-    <label for="nombre">Nombre*</label>
+    <label for="nombre">Nombre del evento*</label>
     <input class="form-control input-sm" ng-model="nombre" type="text" id="nombre" name="nombre" required>
   </div>
     <div class="form-group">
@@ -96,11 +96,11 @@
 							</select>
   </div>
   <div class="form-group">
-    <label for="nombre">Aforo máximo*</label>
-    <input class="form-control input-sm" ng-model="aforo" type="number" min="1" max="50" id=""aforo"" name=""aforo"" required>
+    <label for="nombre">Aforo mÃ¡ximo*</label>
+    <input class="form-control input-sm" ng-model="aforo" type="number" min="1" max="50" id=""aforo"" name="aforo" required>
   </div>
   <div class="form-group">
-    <label for="nombre">Descripción</label>
+    <label for="nombre">DescripciÃ³n</label>
     <textarea class="form-control input-sm" ng-model="desc" type="text" id="desc" name="desc" rows="10" cols="40">
     Escribe una descripcion</textarea>
   </div>
@@ -115,7 +115,7 @@
       <!-- Modal content-->
       <div class="modal-content">
         <div class="modal-header">
-          <h4 class="modal-title">Información</h4>
+          <h4 class="modal-title">InformaciÃ³n</h4>
         </div>
         <div class="modal-body">
           <p>Tu evento ha sido creado correctamente</p>

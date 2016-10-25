@@ -27,7 +27,6 @@
 
 .typeahead, .tt-query, .tt-hint {
 	border-radius: 4px;
-	font-size: 22px; /* Set input font size */
 	height: 30px;
 	line-height: 30px;
 	outline: medium none;
@@ -56,7 +55,6 @@
 	width: 422px;
 }
 .tt-suggestion {
-	font-size: 22px;  /* Set suggestion dropdown font size */
 	padding: 3px 20px;
 }
 .tt-suggestion:hover {
