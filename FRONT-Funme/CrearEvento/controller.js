@@ -13,7 +13,8 @@ app.controller('controlador', ['$scope','$http', function($scope, $http) {
 									lugar : $scope.lugar,
 									nombre : $scope.nombre,
 									interes : $scope.inte,
-									descripcion : $scope.desc
+									descripcion : $scope.desc,
+									aforo : $scope.aforo
 								};
 							var email;
 							var mes = $scope.dia.getMonth()+1;
@@ -24,7 +25,7 @@ app.controller('controlador', ['$scope','$http', function($scope, $http) {
 							posicion_x=(screen.width/2)-(400/2); 
 							posicion_y=(screen.height/2)-(180/2);
 							
-							$http.post('http://localhost:8080/funme/crearEvento?dia='+insertarEv.dia+'&hora='+insertarEv.hora+'&lugar='+insertarEv.lugar+'&nombre='+insertarEv.nombre+'&interes='+insertarEv.interes+'&descripcion='+insertarEv.descripcion+'&email='+insertarEv.email)
+							$http.post('http://localhost:8080/funme/crearEvento?dia='+insertarEv.dia+'&hora='+insertarEv.hora+'&lugar='+insertarEv.lugar+'&nombre='+insertarEv.nombre+'&interes='+insertarEv.interes+'&descripcion='+insertarEv.descripcion+'&aforo='+insertarEv.aforo+'&email='+insertarEv.email)
 							.success(function(data) {
 								$("#ok").modal();
 							}).error(function(data) {

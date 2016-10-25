@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="es" ng-app="app" >
 <head>
+<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1' />
+
     <title>Crear Evento</title>
   <!-- Angular Material style sheet -->
   <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
@@ -94,7 +96,11 @@
 							</select>
   </div>
   <div class="form-group">
-    <label for="nombre">Descripcion</label>
+    <label for="nombre">Aforo máximo*</label>
+    <input class="form-control input-sm" ng-model="aforo" type="number" min="1" max="50" id=""aforo"" name=""aforo"" required>
+  </div>
+  <div class="form-group">
+    <label for="nombre">Descripción</label>
     <textarea class="form-control input-sm" ng-model="desc" type="text" id="desc" name="desc" rows="10" cols="40">
     Escribe una descripcion</textarea>
   </div>
@@ -109,7 +115,7 @@
       <!-- Modal content-->
       <div class="modal-content">
         <div class="modal-header">
-          <h4 class="modal-title">Informacion</h4>
+          <h4 class="modal-title">Información</h4>
         </div>
         <div class="modal-body">
           <p>Tu evento ha sido creado correctamente</p>
