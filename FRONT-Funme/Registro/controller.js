@@ -22,11 +22,7 @@ app.controller('controlador', ['$scope','$http', function($scope, $http) {
 										genero : $scope.genero
 									};
 								var mes = $scope.fecha.getMonth()+1;
-								registro.fecha = $scope.fecha.getDate() + "/" + mes + "/" + $scope.fecha.getFullYear(); 
-								var posicion_x; 
-								var posicion_y; 
-								posicion_x=(screen.width/2)-(400/2); 
-								posicion_y=(screen.height/2)-(300/2); 
+								registro.fecha = $scope.fecha.getDate() + "/" + mes + "/" + $scope.fecha.getFullYear();
 
 								$http.post('http://localhost:8080/funme/guardarRegistro?email='+registro.email+'&password='+registro.password+'&nombre='+registro.nombre+'&apellidos='+registro.apellidos+'&fecha='+registro.fecha+'&genero='+registro.genero)
 								.success(function(data) {
