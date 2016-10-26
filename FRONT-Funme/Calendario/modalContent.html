@@ -1,16 +1,29 @@
 
       <div class="modal-header">
-        <h3 class="modal-title">Event action occurred!</h3>
+        <h3 class="modal-title">Información del evento {{ vm.event.nombre }}:</h3>
       </div>
       <div class="modal-body">
-        <p>Action:
-        <pre>{{ vm.action }}</pre>
+        <p>Nombre del evento:
+        <pre>{{ vm.event.nombre }}</pre>
         </p>
-        <p>Event:
-        <pre>{{ vm.event | json }}</pre>
+        <p>Lugar:
+        <pre>{{ vm.event.lugar }}</pre>
+        </p>
+        <p>Categoría:
+        <pre>{{ vm.event.categoria }}</pre>
+        </p>
+        <p>Fecha y Hora:
+        <pre>{{ vm.event.dia }} - {{ vm.event.hora }}</pre>
+        </p>
+        <p>Descripción:
+        <pre>{{ vm.event.descripcion }}</pre>
+        </p>
+        <p>Integrantes:
+        <pre>{{ vm.event.participantes }} / {{ vm.event.aforo }}</pre>
         </p>
       </div>
       <div class="modal-footer">
-        <button class="btn btn-primary" ng-click="$close()">OK</button>
+        <button class="btn btn-primary" ng-click="$close()">Cancelar</button>
+        <button class="btn btn-primary" ng-click="unirse()" disabled="vm.event.participantes < vm.event.aforo">Unirse</button>
       </div>
     

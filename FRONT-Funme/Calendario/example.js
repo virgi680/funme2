@@ -1,12 +1,13 @@
 angular.module('mwl.calendar.docs', ['mwl.calendar', 'ngAnimate', 'ui.bootstrap', 'colorpicker.module']);
 angular
   .module('mwl.calendar.docs') //you will need to declare your module with the dependencies ['mwl.calendar', 'ui.bootstrap', 'ngAnimate']
-  .controller('KitchenSinkCtrl', function(moment, alert, calendarConfig, $http) {
+  .controller('KitchenSinkCtrl', function(moment, alert, calendarConfig, $http, $scope) {
+	  var url = 'http://192.168.1.65:8080/funme/';
 	  console.log(getParameterByName('categoria'));
 	  console.log(getParameterByName('lugar'));
 		var inter = getParameterByName('categoria');
 		var lug = getParameterByName('lugar');
-			$http.get('http://192.168.1.65:8080/funme/buscarEventos?categoria='+inter+'&lugar='+lug)
+			$http.get(url+'buscarEventos?categoria='+inter+'&lugar='+lug)
 			.success(function(data) {
 				vm.events = [];
 				for(var i in data){
@@ -26,14 +27,16 @@ angular
     vm.calendarView = 'month';
     vm.viewDate = new Date();
     var actions = [{
-      label: '<i class=\'glyphicon glyphicon-pencil\'></i>',
+      label: '<i class=\'glyphicon glyphicon-search\'></i>',
       onClick: function(args) {
-        alert.show('Edited', args.calendarEvent);
-      }
-    }, {
-      label: '<i class=\'glyphicon glyphicon-remove\'></i>',
-      onClick: function(args) {
-        alert.show('Deleted', args.calendarEvent);
+    	  console.log(args.calendarEvent.title);
+    	  $http.get(url+'informacionEvento?nombre='+args.calendarEvent.title+'&lugar='+lug)
+			.success(function(data) {
+				alert.show('Edited', data);
+			}).error(function(data) {
+				$("#err").modal();
+			});
+        
       }
     }];
 
@@ -56,7 +59,6 @@ angular
     };
 
     vm.eventClicked = function(event) {
-    	alert("prueba");
       alert.show('Clicked', event);
     };
 
@@ -99,5 +101,8 @@ angular
       }
 
     };
+    $scope.crearEvento = function(){
+    	location.href="../CrearEvento/crearEvento.html";
+    }
 
   });

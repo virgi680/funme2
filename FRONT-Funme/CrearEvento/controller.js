@@ -3,7 +3,8 @@
  */
 'use strict';
 var app = angular.module('app', [])
-app.controller('cont$scope.fechaActual = new Date();
+app.controller('controlador', ['$scope','$http', function($scope, $http) {
+			$scope.fechaActual = new date();
 			$scope.fechaActual = $scope.fechaActual.getFullYear() + "-" + ("0" + ($scope.fechaActual.getMonth()+1)).slice(-2) + "-" + ("0" + $scope.fechaActual.getDate()).slice(-2); 
 			console.log($scope.fechaActual);
 	
