@@ -2,7 +2,24 @@ angular.module('mwl.calendar.docs', ['mwl.calendar', 'ngAnimate', 'ui.bootstrap'
 angular
   .module('mwl.calendar.docs') //you will need to declare your module with the dependencies ['mwl.calendar', 'ui.bootstrap', 'ngAnimate']
   .controller('KitchenSinkCtrl', function(moment, alert, calendarConfig, $http) {
-
+	  console.log(getParameterByName('categoria'));
+	  console.log(getParameterByName('lugar'));
+		var inter = getParameterByName('categoria');
+		var lug = getParameterByName('lugar');
+			$http.get('http://192.168.1.65:8080/funme/buscarEventos?categoria='+inter+'&lugar='+lug)
+			.success(function(data) {
+				vm.events = [];
+				for(var i in data){
+					var event = {
+							title : data[i].title,
+							startsAt : new Date(data[i].year, data[i].month, data[i].day, data[i].hour, data[i].minute),
+							actions : actions
+					};
+					vm.events.push(event);
+				}
+			}).error(function(data) {
+				$("#err").modal();
+			});
     var vm = this;
 
     //These variables MUST be set as a minimum for the calendar to work
@@ -19,67 +36,13 @@ angular
         alert.show('Deleted', args.calendarEvent);
       }
     }];
-    var inter = "deportes";
-    var lug = "barcelona";
-    data = [{"title":"mi evento creado","year":"2016","month":"09","day":"26","hour":"17","minute":"0"}];
-	vm.events = [];
-	for(var i in data){
-		var event = {
-				title : data[i].title,
-				startsAt : new Date(data[i].year, data[i].month, data[i].day, data[i].hour, data[i].minute),
-				actions : actions
-		};
-		vm.events.push(event);
-	}
-    /*$http.get('http://192.168.1.65:8080/funme/buscarEventos?interes='+inter+'&lugar='+lug)
-	.success(function(data) {
-		data = [{"title":"mi evento creado","year":"2016","month":"09","day":"26","hour":"17","minute":"0"}];
-		vm.events = [];
-		for(var i in data){
-			var event = {
-					title : data[i].title,
-					startsAt : new Date(data[i].year, data[i].month, data[i].day, data[i].hour, data[i].minute),
-					actions : actions
-			};
-			vm.events.push(event);
+
+    function getParameterByName(name) {
+		   name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+		   var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+		   results = regex.exec(location.search);
+		   return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
 		}
-		console.log(vm.events);
-		//vm.events = data;
-	}).error(function(data) {
-		alert(error);
-	});*/
-   /*vm.events = [ 
-        {
-          title: 'An event',
- //         color: calendarConfig.colorTypes.warning,
-          startsAt: new Date(2016,9,25,15,0)
-//          endsAt: moment().startOf('week').add(1, 'week').add(9, 'hours').toDate(),
-//          draggable: true,
-//          resizable: true,
-//          actions: actions
-        }
-        //, {
-//          title: '<i class="glyphicon glyphicon-asterisk"></i> <span class="text-primary">Another event</span>, with a <i>html</i> title',
-//          color: calendarConfig.colorTypes.info,
-//          startsAt: moment().subtract(1, 'day').toDate(),
-//          endsAt: moment().add(5, 'days').toDate(),
-//          draggable: true,
-//          resizable: true,
-//          actions: actions
-//        }, {
-//          title: 'This is a really long event title that occurs on every year',
-//          color: calendarConfig.colorTypes.important,
-//          startsAt: moment().startOf('day').add(7, 'hours').toDate(),
-//          endsAt: moment().startOf('day').add(19, 'hours').toDate(),
-//          recursOn: 'year',
-//          draggable: true,
-//          resizable: true,
-//          actions: actions
-//        }
-  ];*/
-
-    vm.cellIsOpen = true;
-
     vm.addEvent = function() {
     	
       vm.events.push({

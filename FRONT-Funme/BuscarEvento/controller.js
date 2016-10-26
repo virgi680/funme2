@@ -36,18 +36,13 @@ app.controller('controlador', ['$scope','$http', function($scope, $http) {
 	});
 
 	$scope.buscarEvent = function() {
-			if($scope.buscarEvento.$valid){
-				var buscarEv = {
-						interes : $scope.interes,
-						lugar : $scope.lugar
-					};
-
-				$http.post('http://localhost:8080/funme/buscarEventos?interes='+buscarEv.interes+'&lugar='+buscarEv.lugar)
-				.success(function(data) {
-					location.href="../eventos.html";
-				}).error(function(data) {
-					$("#err").modal();
-				});
-			}
+		var data = [{"title":"mi evento creado","year":"2016","month":"09","day":"26","hour":"17","minute":"0"}];
+		var buscarEv = {
+				interes : "Deporte",
+				lugar : "Barcelona"
+			};
+		if($scope.buscarEvento.$valid){
+			location.href="../Calendario/calendario.html?categoria="+$scope.interes+"&lugar="+$scope.lugar;
+		}	
 	}
 	} ]);
