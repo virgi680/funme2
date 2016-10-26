@@ -21,8 +21,19 @@ angular
     }];
     var inter = "deportes";
     var lug = "barcelona";
-    $http.get('http://192.168.1.65:8080/funme/buscarEventos?interes='+inter+'&lugar='+lug)
+    data = [{"title":"mi evento creado","year":"2016","month":"09","day":"26","hour":"17","minute":"0"}];
+	vm.events = [];
+	for(var i in data){
+		var event = {
+				title : data[i].title,
+				startsAt : new Date(data[i].year, data[i].month, data[i].day, data[i].hour, data[i].minute),
+				actions : actions
+		};
+		vm.events.push(event);
+	}
+    /*$http.get('http://192.168.1.65:8080/funme/buscarEventos?interes='+inter+'&lugar='+lug)
 	.success(function(data) {
+		data = [{"title":"mi evento creado","year":"2016","month":"09","day":"26","hour":"17","minute":"0"}];
 		vm.events = [];
 		for(var i in data){
 			var event = {
@@ -36,7 +47,7 @@ angular
 		//vm.events = data;
 	}).error(function(data) {
 		alert(error);
-	});
+	});*/
    /*vm.events = [ 
         {
           title: 'An event',

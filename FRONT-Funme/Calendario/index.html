@@ -10,23 +10,23 @@
 
   <!-- Angular Material requires Angular.js Libraries -->
   <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
-  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
+  <!-- <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
   <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
-  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script> -->
 
   <!-- Angular Material Library -->
-  <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>  <!-- Angular Material requires Angular.js Libraries -->
+  <!-- <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>  Angular Material requires Angular.js Libraries
   <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
   <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
   <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
-  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script> -->
 
   <!-- Angular Material Library -->
-  <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+  <!-- <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script> -->
 
   
    <!-- Bootstrap Material Library -->
-   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+   <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
   
@@ -40,94 +40,93 @@
     <script src="http://mattlewis92.github.io/angular-bootstrap-calendar/dist/js/angular-bootstrap-calendar-tpls.min.js"></script>
     <script src="example.js"></script>
     <script src="helpers.js"></script>
-        <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="index.css">
     <link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
     <link href="http://cdnjs.cloudflare.com/ajax/libs/angular-bootstrap-colorpicker/3.0.25/css/colorpicker.min.css" rel="stylesheet">
     <link href="http://mattlewis92.github.io/angular-bootstrap-calendar/dist/css/angular-bootstrap-calendar.min.css" rel="stylesheet">
   </head>
-  <body>
 
-  <div class="container-fluid ">
- <nav class="navbar navbar-default navbar-fixed-top">
+<body>
+  	<div class="container-fluid ">
+	 	<nav class="navbar navbar-default navbar-fixed-top">
+		    <div class="navbar-header">
+		      <a href="../index.html" > <img class="img-thumbnail" src="../IMG/logo.png" width="135" height="135"></a>
+		    </div>
+		    <ul class="nav navbar-nav navbar-right">
+		      <li><a href="../MisEventos/misEventos.html"><span class="glyphicon glyphicon-list-alt"></span> Mis Eventos</a></li>
+		      <li><a href="../index.html"><span class="glyphicon glyphicon-log-in"></span> Cerrar Sesión</a></li>
+		    </ul>
+		</nav>
+  	</div>
+	<div ng-controller="KitchenSinkCtrl as vm">
 
-    <div class="navbar-header">
-      <a href="../index.html" > <img class="img-thumbnail" src="../IMG/logo.png" width="135" height="135"></a>
-    </div>
-    <ul class="nav navbar-nav navbar-right">
-      <li><a href="#"><span class="glyphicon glyphicon-list-alt"></span> Mis Eventos</a></li>
-      <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Cerrar Sesión</a></li>
-    </ul>
+	  <h2 class="text-center espacio">{{ vm.calendarTitle }}</h2>
+	
+	  <div class="row">
+	
+	    <div class="col-md-6 text-center">
+	      <div class="btn-group">
+	
+	        <button
+	          class="btn btn-primary"
+	          mwl-date-modifier
+	          date="vm.viewDate"
+	          decrement="vm.calendarView"
+	          ng-click="vm.cellIsOpen = false">
+	          Previous
+	        </button>
+	        <button
+	          class="btn btn-default"
+	          mwl-date-modifier
+	          date="vm.viewDate"
+	          set-to-today
+	          ng-click="vm.cellIsOpen = false">
+	          Today
+	        </button>
+	        <button
+	          class="btn btn-primary"
+	          mwl-date-modifier
+	          date="vm.viewDate"
+	          increment="vm.calendarView"
+	          ng-click="vm.cellIsOpen = false">
+	          Next
+	        </button>
+	      </div>
+	    </div>
+	
+	    <br class="visible-xs visible-sm">
+	
+	    <div class="col-md-6 text-center">
+	      <div class="btn-group">
+	        <label class="btn btn-primary" ng-model="vm.calendarView" uib-btn-radio="'year'" ng-click="vm.cellIsOpen = false">Year</label>
+	        <label class="btn btn-primary" ng-model="vm.calendarView" uib-btn-radio="'month'" ng-click="vm.cellIsOpen = false">Month</label>
+	        <label class="btn btn-primary" ng-model="vm.calendarView" uib-btn-radio="'week'" ng-click="vm.cellIsOpen = false">Week</label>
+	        <label class="btn btn-primary" ng-model="vm.calendarView" uib-btn-radio="'day'" ng-click="vm.cellIsOpen = false">Day</label>
+	      </div>
+	    </div>
+	
+	  </div>
+	
+	  <br>
 
-</nav>
-  </div>
-<div ng-controller="KitchenSinkCtrl as vm">
-  <h2 class="text-center espacio">{{ vm.calendarTitle }}</h2>
-
-  <div class="row">
-
-    <div class="col-md-6 text-center">
-      <div class="btn-group">
-
-        <button
-          class="btn btn-primary"
-          mwl-date-modifier
-          date="vm.viewDate"
-          decrement="vm.calendarView"
-          ng-click="vm.cellIsOpen = false">
-          Previous
-        </button>
-        <button
-          class="btn btn-default"
-          mwl-date-modifier
-          date="vm.viewDate"
-          set-to-today
-          ng-click="vm.cellIsOpen = false">
-          Today
-        </button>
-        <button
-          class="btn btn-primary"
-          mwl-date-modifier
-          date="vm.viewDate"
-          increment="vm.calendarView"
-          ng-click="vm.cellIsOpen = false">
-          Next
-        </button>
-      </div>
-    </div>
-
-    <br class="visible-xs visible-sm">
-
-    <div class="col-md-6 text-center">
-      <div class="btn-group">
-        <label class="btn btn-primary" ng-model="vm.calendarView" uib-btn-radio="'year'" ng-click="vm.cellIsOpen = false">Year</label>
-        <label class="btn btn-primary" ng-model="vm.calendarView" uib-btn-radio="'month'" ng-click="vm.cellIsOpen = false">Month</label>
-        <label class="btn btn-primary" ng-model="vm.calendarView" uib-btn-radio="'week'" ng-click="vm.cellIsOpen = false">Week</label>
-        <label class="btn btn-primary" ng-model="vm.calendarView" uib-btn-radio="'day'" ng-click="vm.cellIsOpen = false">Day</label>
-      </div>
-    </div>
-
-  </div>
-
-  <br>
-
-  <mwl-calendar
-    events="vm.events"
-    view="vm.calendarView"
-    view-title="vm.calendarTitle"
-    view-date="vm.viewDate"
-    on-event-click="vm.eventClicked(calendarEvent)"
-    on-event-times-changed="vm.eventTimesChanged(calendarEvent); calendarEvent.startsAt = calendarNewEventStart; calendarEvent.endsAt = calendarNewEventEnd"
-    edit-event-html="'<div class=\'btn btn-primary btn-sm pull-right\'><i class=\'ti-pencil\'></i></div>'"
-    cell-is-open="vm.cellIsOpen"
-    day-view-start="06:00"
-    day-view-end="22:59"
-    day-view-split="30"
-    cell-modifier="vm.modifyCell(calendarCell)"
-    cell-auto-open-disabled="true"
-    on-timespan-click="vm.timespanClicked(calendarDate, calendarCell)">
-  </mwl-calendar>
-
-</div>
+	  <mwl-calendar
+	    events="vm.events"
+	    view="vm.calendarView"
+	    view-title="vm.calendarTitle"
+	    view-date="vm.viewDate"
+	    on-event-click="vm.eventClicked(calendarEvent)"
+	    on-event-times-changed="vm.eventTimesChanged(calendarEvent); calendarEvent.startsAt = calendarNewEventStart; calendarEvent.endsAt = calendarNewEventEnd"
+	    edit-event-html="'<div class=\'btn btn-primary btn-sm pull-right\'><i class=\'ti-pencil\'></i></div>'"
+	    cell-is-open="vm.cellIsOpen"
+	    day-view-start="06:00"
+	    day-view-end="22:59"
+	    day-view-split="30"
+	    cell-modifier="vm.modifyCell(calendarCell)"
+	    cell-auto-open-disabled="true"
+	    on-timespan-click="vm.timespanClicked(calendarDate, calendarCell)">
+	  </mwl-calendar>
+	
+	</div>
 
   </body>
 </html>
