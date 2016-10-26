@@ -64,7 +64,7 @@
   <form name="crearEvento">
   <div class="form-group">
     <label for="dia">Dia*</label>
-    <input class="form-control input-sm" ng-model="dia" type="date" id="dia" name="dia" placeholder="dd/mm/aaaa" title="Formato incorrecto. Ajustese al formato dd/mm/aaaa" required>
+    <input class="form-control input-sm" ng-model="dia" type="date" id="dia" name="dia" placeholder="dd/mm/aaaa" min="fechaActual" max="2099-12-31" title="Formato incorrecto. Ajustese al formato dd/mm/aaaa" required>
   </div>
     <div class="form-group">
     <label for="hora">Hora*</label>
