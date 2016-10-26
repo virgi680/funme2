@@ -4,17 +4,19 @@
 'use strict';
 var app = angular.module('app', [])
 app.controller('controlador', ['$scope','$http', function($scope, $http) {
+			$scope.inter = getParameterByName('categoria');
+			$scope.lug = getParameterByName('lugar');
 			$scope.fechaActual = new date();
 			$scope.fechaActual = $scope.fechaActual.getFullYear() + "-" + ("0" + ($scope.fechaActual.getMonth()+1)).slice(-2) + "-" + ("0" + $scope.fechaActual.getDate()).slice(-2); 
 			console.log($scope.fechaActual);
 	
 			$scope.cancelar = function() {
-				location.href="../index.html";
+				location.href="../Calendario/calendario.html?categoria="+inter+"&lugar="+lug;
 			}
 			$scope.insertEvent = function() {
 				if($scope.crearEvento.$valid){
 					var insertarEv = {
-							lugar : $scope.lugar,
+							lugar : $scope.lug,
 							nombre : $scope.nombre,
 							interes : $scope.inte,
 							descripcion : $scope.desc,

@@ -102,7 +102,7 @@ angular
 
     };
     $scope.crearEvento = function(){
-    	location.href="../CrearEvento/crearEvento.html";
+    	location.href="../CrearEvento/crearEvento.html?categoria="+inter+"&lugar="+lug;
     }
 
   });
