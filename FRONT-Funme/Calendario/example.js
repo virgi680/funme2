@@ -21,9 +21,19 @@ angular
     }];
     var inter = "deportes";
     var lug = "barcelona";
-    $http.post('http://localhost:8080/funme/buscarEventos?interes='+inter+'&lugar='+lug)
+    $http.get('http://192.168.1.65:8080/funme/buscarEventos?interes='+inter+'&lugar='+lug)
 	.success(function(data) {
-		vm.events = data;
+		vm.events = [];
+		for(var i in data){
+			var event = {
+					title : data[i].title,
+					startsAt : new Date(data[i].year, data[i].month, data[i].day, data[i].hour, data[i].minute),
+					actions : actions
+			};
+			vm.events.push(event);
+		}
+		console.log(vm.events);
+		//vm.events = data;
 	}).error(function(data) {
 		alert(error);
 	});
