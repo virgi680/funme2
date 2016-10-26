@@ -6,7 +6,7 @@ app.controller('controlador', ['$scope','$http', function($scope, $http) {
 	$scope.login = function() {
 		$http.get(url+'login?email='+$scope.email+'&password='+$scope.password)
 		.success(function(data) {
-			location.href="../BuscarEvento/buscarEvento.html?email="+$scope.email;
+			location.href="BuscarEvento/buscarEvento.html?email="+$scope.email;
 		}).error(function(data) {
 			$("#err").modal();
 		});
