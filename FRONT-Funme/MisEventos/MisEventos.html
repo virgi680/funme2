@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es" ng-app="app" >
+<head>
+  <meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
+
+    <title>Mis Eventos</title>
+  <!-- Angular Material style sheet -->
+
+      <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
+
+  <!-- Bootstrap Css Library -->
+
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      <link rel="stylesheet" href="MisEventos.css">
+
+  <!-- Angular Material requires Angular.js Libraries -->
+
+      <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+      <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
+      <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
+      <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
+
+  <!-- Angular Material Library -->
+
+      <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>  <!-- Angular Material requires Angular.js Libraries -->
+
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+      <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
+      <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
+      <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
+
+  <!-- Angular Material Library -->
+
+      <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+      <script src="controller.js"></script>
+     
+  
+  <!-- Bootstrap Material Library -->
+
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+      <script  type="text/javascript" src="typeahead.bundle.js"></script>
+ 
+</head>
+
+<body class="colorsito" ng-controller="controlador">
+
+  <div class="container-fluid ">
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="navbar-header">
+        <a href="../index.html" > <img class="img-thumbnail" src="../IMG/logo.png" width="135" height="135"></a>
+      </div>
+    </nav>
+  </div>
+<br><br>
+
+<div class="container  ">
+  <div class="row ">
+    <div class="col-md-2"></div>
+      <div class="color col-md-8 ">
+        <h1>Mis Eventos</h1>      
+          <p>Estos son los eventos en los que estás inscrito<p>
+      </div>
+    <div class="col-md-2"></div>
+  </div>
+</div>
+
+<div class="container ">
+  <div class="row  ">
+    <div class="col-md-2 "></div>
+    <div class="col-md-8 ">
+    
+
+  <div class="jumbotron list-group " ng-repeat="usuario in equipo">
+<div class="container espacio">
+              <h2>{{usuario.title}}</h2> 
+                </div>  
+              <a class="list-group-item">Nombre del evento: {{usuario.title}}</a>
+               <a  class="list-group-item">Email: {{usuario.email}}</a>
+                <a class="list-group-item">Nombre: {{usuario.nombre}}</a>
+                <a class="list-group-item">Fecha: {{usuario.fecha}}</a>
+                  <a class="list-group-item">Lugar: {{usuario.lugar}}</a>
+</div>
+      
+        </div>
+      <!-- <form name="Mis eventos">
+        <div class="form-group">
+          <label for="nombre">Evento</label>
+          <div>
+              <form name="MisEventos"method="get"action="http://192.168.1.65:8080/funme/MisEventos">
+                  <input type="text"correo="email"value="">
+                  <input type="submit"/>
+              </form>
+          </div>
+      </div>
+
+        <div class="form-group">
+            <center>
+                <button type="join">Unirse</button>
+                <button type="unjoin" ng-click="buscarEvent()">Desunirse</button>
+                <div class="modal fade" id="err" role="dialog">
+                  <div class="modal-dialog">
+       
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h4 class="modal-title">Informacion</h4>
+                      </div>
+                      <div class="modal-body">
+                        <p>No te has unido a ningun evento</p>
+                      </div>
+                        <div class="modal-footer">
+                  		      <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="cancelar()">Close</button>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+            </center>
+        </div>
+      </form>-->
+
+
+    <div class="col-md-2 "></div>
+  </div>
+</div>
+
+
+</body>
+</html>
