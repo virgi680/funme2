@@ -51,4 +51,7 @@ app.controller('controlador', ['$scope','$http', function($scope, $http) {
 			location.href="../Calendario/calendario.html?categoria="+$scope.interes+"&lugar="+$scope.lugar+"&email="+user;
 		}	
 	}
-	} ]);
+	$scope.misEventos = function(){
+    	location.href="../MisEventos/MisEventos.html?email="+user;
+    }
+}]);
