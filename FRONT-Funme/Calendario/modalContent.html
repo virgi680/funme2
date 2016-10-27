@@ -18,12 +18,20 @@
         <p>Descripción:
         <pre>{{ vm.event.descripcion }}</pre>
         </p>
+        <p>Creador:
+	        <div ng-hide="vm.event.emailLogin !== vm.event.creador">
+		        <pre>Eres el creador del evento</pre>
+	        </div>
+	        <div ng-hide="vm.event.emailLogin === vm.event.creador">
+		        <pre>{{vm.event.creador}}</pre>
+	        </div>
+        </p>
         <p>Integrantes:
         <pre>{{ vm.event.participantes }} / {{ vm.event.aforo }}</pre>
         </p>
       </div>
       <div class="modal-footer">
         <button class="btn btn-primary" ng-click="$close()">Cancelar</button>
-        <button class="btn btn-primary" ng-click="unirse()" disabled="vm.event.participantes < vm.event.aforo">Unirse</button>
+        <button class="btn btn-primary" ng-click="unirse()" ng-disabled="vm.event.participantes === vm.event.aforo" ng-hide="vm.event.emailLogin === vm.event.creador">Unirse</button>
       </div>
     

@@ -4,6 +4,7 @@
 'use strict';
 var app = angular.module('app', [])
 app.controller('controlador', ['$scope','$http', function($scope, $http) {
+					var url = 'http://192.168.1.65:8080/funme/';
 					$scope.cancelar = function() {
 						location.href="../index.html";
 					}
@@ -24,7 +25,7 @@ app.controller('controlador', ['$scope','$http', function($scope, $http) {
 								var mes = $scope.fecha.getMonth()+1;
 								registro.fecha = $scope.fecha.getDate() + "/" + mes + "/" + $scope.fecha.getFullYear();
 
-								$http.post('http://localhost:8080/funme/guardarRegistro?email='+registro.email+'&password='+registro.password+'&nombre='+registro.nombre+'&apellidos='+registro.apellidos+'&fecha='+registro.fecha+'&genero='+registro.genero)
+								$http.post(url+'guardarRegistro?email='+registro.email+'&password='+registro.password+'&nombre='+registro.nombre+'&apellidos='+registro.apellidos+'&fecha='+registro.fecha+'&genero='+registro.genero)
 								.success(function(data) {
 									$("#ok").modal();
 								}).error(function(data) {

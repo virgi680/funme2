@@ -2,6 +2,7 @@
   'use strict';
 var app = angular.module('app', [])
 app.controller('controlador', ['$scope','$http', function($scope, $http) {
+	var user = getParameterByName('email');
 	$(document).ready(function(){
 	    // Defining the local dataset
 	    var provincias = ['Alava','Albacete','Alicante','Almería','Asturias','Avila','Badajoz','Barcelona','Burgos','Cáceres',
@@ -34,7 +35,12 @@ app.controller('controlador', ['$scope','$http', function($scope, $http) {
 			  $(this).typeahead('setQuery', '');
 			});
 	});
-
+	function getParameterByName(name) {
+		   name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+		   var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+		   results = regex.exec(location.search);
+		   return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+	}
 	$scope.buscarEvent = function() {
 		var data = [{"title":"mi evento creado","year":"2016","month":"09","day":"26","hour":"17","minute":"0"}];
 		var buscarEv = {
@@ -42,7 +48,7 @@ app.controller('controlador', ['$scope','$http', function($scope, $http) {
 				lugar : "Barcelona"
 			};
 		if($scope.buscarEvento.$valid){
-			location.href="../Calendario/calendario.html?categoria="+$scope.interes+"&lugar="+$scope.lugar;
+			location.href="../Calendario/calendario.html?categoria="+$scope.interes+"&lugar="+$scope.lugar+"&email="+user;
 		}	
 	}
 	} ]);

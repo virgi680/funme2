@@ -2,7 +2,9 @@
   'use strict';
 var app = angular.module('app', [])
 app.controller('controlador', ['$scope','$http', function($scope, $http) {
-	$scope.equipo = [{
+	var url = 'http://192.168.1.65:8080/funme/';
+	$scope.user = getParameterByName('email');
+	/*$scope.equipo = [{
 					title : "Futbol",
 					fecha : "10/10/2016",
 					nombre : "Luis"
@@ -12,14 +14,19 @@ app.controller('controlador', ['$scope','$http', function($scope, $http) {
 					nombre : "pepe",
 					lugar :  "  Madrid"
 				}
-				];
-	/*$http.get('http://192.168.1.65:8080/funme/MisEventos?email='+enviarMail.email+')
+				];*/
+	$http.get(url+'misEventos?email='+$scope.user)
 	.success(function(data) {
 		$scope.equipo = data;
-		
 	}).error(function(data) {
 		$("#err").modal();
-	});*/
+	});
+	function getParameterByName(name) {
+		   name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+		   var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+		   results = regex.exec(location.search);
+		   return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+	}
 	$scope.MisEventos = function() {
 			if($scope.MisEventos.$valid){
 				var enviarMail = {

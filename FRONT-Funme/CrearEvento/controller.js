@@ -4,34 +4,41 @@
 'use strict';
 var app = angular.module('app', [])
 app.controller('controlador', ['$scope','$http', function($scope, $http) {
+			var url = 'http://192.168.1.65:8080/funme/';
 			$scope.inter = getParameterByName('categoria');
 			$scope.lug = getParameterByName('lugar');
-			$scope.fechaActual = new date();
-			$scope.fechaActual = $scope.fechaActual.getFullYear() + "-" + ("0" + ($scope.fechaActual.getMonth()+1)).slice(-2) + "-" + ("0" + $scope.fechaActual.getDate()).slice(-2); 
-			console.log($scope.fechaActual);
-	
+			var user = getParameterByName('email');
+			//$scope.fechaActual = new date();
+			//$scope.fechaActual = $scope.fechaActual.getFullYear() + "-" + ("0" + ($scope.fechaActual.getMonth()+1)).slice(-2) + "-" + ("0" + $scope.fechaActual.getDate()).slice(-2); 
+			//console.log($scope.fechaActual);
+			function getParameterByName(name) {
+				   name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+				   var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+				   results = regex.exec(location.search);
+				   return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+			}
 			$scope.cancelar = function() {
-				location.href="../Calendario/calendario.html?categoria="+inter+"&lugar="+lug;
+				location.href="../Calendario/calendario.html?categoria="+$scope.inter+"&lugar="+$scope.lug+"&email="+user;
 			}
 			$scope.insertEvent = function() {
-				if($scope.crearEvento.$valid){
+				//if($scope.crearEvento.$valid){
 					var insertarEv = {
-							lugar : $scope.lug,
+							//lugar : $scope.lug,
 							nombre : $scope.nombre,
-							interes : $scope.inte,
+							//interes : $scope.inte,
 							descripcion : $scope.desc,
 							aforo : $scope.aforo
 						};
-					var email;
+					console.log($scope.dia);
 					insertarEv.dia = ("0" + $scope.dia.getDate()).slice(-2) + "/" + ("0" + ($scope.dia.getMonth()+1)).slice(-2)+ "/" + $scope.dia.getFullYear(); 
 					insertarEv.hora = $scope.hora.getHours() + ":" + $scope.hora.getMinutes();
 					console.log(insertarEv.dia);
-					$http.post('http://localhost:8080/funme/crearEvento?dia='+insertarEv.dia+'&hora='+insertarEv.hora+'&lugar='+insertarEv.lugar+'&nombre='+insertarEv.nombre+'&interes='+insertarEv.interes+'&descripcion='+insertarEv.descripcion+'&aforo='+insertarEv.aforo+'&email='+insertarEv.email)
+					$http.post(url+'crearEvento?dia='+insertarEv.dia+'&hora='+insertarEv.hora+'&lugar='+$scope.lug+'&nombre='+insertarEv.nombre+'&interes='+$scope.inter+'&descripcion='+insertarEv.descripcion+'&aforo='+insertarEv.aforo+'&email='+user)
 					.success(function(data) {
 						$("#ok").modal();
 					}).error(function(data) {
 						$("#err").modal();
 					});
-				}
+				//}
 			}
 } ]);
