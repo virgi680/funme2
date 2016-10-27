@@ -20,4 +20,7 @@ app.controller('controlador', ['$scope','$http', function($scope, $http) {
 	$scope.buscarEvento = function(){
     	location.href="../BuscarEvento/buscarEvento.html?email="+$scope.user;
     }
+	$scope.misEventos = function(){
+    	location.href="MisEventos.html?email="+$scope.user;
+    }
 }]);

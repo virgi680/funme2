@@ -10,7 +10,7 @@ app.controller('controlador', ['$scope','$http', function($scope, $http) {
 			var user = getParameterByName('email');
 			//$scope.fechaActual = new date();
 			//$scope.fechaActual = $scope.fechaActual.getFullYear() + "-" + ("0" + ($scope.fechaActual.getMonth()+1)).slice(-2) + "-" + ("0" + $scope.fechaActual.getDate()).slice(-2); 
-			//console.log($scope.fechaActual);
+
 			function getParameterByName(name) {
 				   name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
 				   var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
@@ -21,11 +21,11 @@ app.controller('controlador', ['$scope','$http', function($scope, $http) {
 				location.href="../Calendario/calendario.html?categoria="+$scope.inter+"&lugar="+$scope.lug+"&email="+user;
 			}
 			$scope.insertEvent = function() {
-				//if($scope.crearEvento.$valid){
+				if($scope.crearEvento.$valid){
 					var insertarEv = {
-							//lugar : $scope.lug,
+							lugar : $scope.lug,
 							nombre : $scope.nombre,
-							//interes : $scope.inte,
+							interes : $scope.inte,
 							descripcion : $scope.desc,
 							aforo : $scope.aforo
 						};
@@ -39,6 +39,12 @@ app.controller('controlador', ['$scope','$http', function($scope, $http) {
 					}).error(function(data) {
 						$("#err").modal();
 					});
-				//}
+				}
 			}
+			$scope.buscarEvento = function(){
+		    	location.href="../BuscarEvento/buscarEvento.html?email="+$scope.user;
+		    }
+			$scope.misEventos = function(){
+		    	location.href="../MisEventos/MisEventos.html?email="+$scope.user;
+		    }
 } ]);
