@@ -33,5 +33,26 @@
       <div class="modal-footer">
         <button class="btn btn-primary" ng-click="$close()">Cancelar</button>
         <button class="btn btn-primary" ng-click="unirse()" ng-disabled="vm.event.participantes === vm.event.aforo" ng-hide="vm.event.emailLogin === vm.event.creador">Unirse</button>
+      	<button class="btn btn-primary" ng-click="unirse()" ng-disabled="vm.event.participantes === vm.event.aforo" ng-hide="vm.event.emailLogin === vm.event.creador">Unirse</button>
+      	
       </div>
+      <div class="modal fade" id="err" role="dialog">
+    <div class="modal-dialog">
+    
+    <div class="modal fade" id="err" role="dialog">
+	    <div class="modal-dialog">
+	      <!-- Modal content-->
+	      <div class="modal-content">
+	        <div class="modal-header">
+	          <h4 class="modal-title">Información</h4>
+	        </div>
+	        <div class="modal-body">
+	          <p>Te has unido al evento</p>
+	        </div>
+	        <div class="modal-footer">
+	          		<button type="button" class="btn btn-default" ng-click="ok()">Cerrar</button>
+	        </div>
+	      </div>
+		</div>
+	</div>
     

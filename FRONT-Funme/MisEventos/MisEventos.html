@@ -51,7 +51,7 @@
         <a href="../index.html" > <img class="img-thumbnail" src="../IMG/logo.png" width="135" height="135"></a>
       </div>
       <ul class="nav navbar-nav navbar-right">
-      		<li><a ng-click="buscarEvento()"><span class="glyphicon glyphicon-list-alt"></span> Buscar Eventos</a></li>
+      		<li><a ng-click="buscarEvento()"><span class="glyphicon glyphicon-search"></span> Buscar Eventos</a></li>
 		      <li><a ng-click="misEventos()"><span class="glyphicon glyphicon-list-alt"></span> Mis Eventos</a></li>
 		      <li><a href="../index.html"><span class="glyphicon glyphicon-log-in"></span> Cerrar Sesión</a></li>
 		</ul>
@@ -60,7 +60,7 @@
 <br><br>
 
 <div class="container  ">
-  <div class="row ">
+  <div class="row espacioH1">
     <div class="col-md-2"></div>
       <div class="color col-md-8 ">
         <h1>Mis Eventos</h1>      
@@ -87,13 +87,18 @@
                   <a class="list-group-item">Descripción: {{usuario.descripcion}}</a>
                   <a class="list-group-item">Participantes: {{usuario.integrantes}}/{{usuario.aforo}}</a>
                   
+                  <button type="button" class="btn btn-default" ng-click="cancelarEv()" ng-hide="usuario.creador == usuario.email">Cancelar evento</button>
+                  <button type="button" class="btn btn-default" ng-click="DesunirEv()" ng-hide="usuario.creador != usuario.email">Desunirse</button>
 </div>
-<div class="jumbotron list-group " ng-hide="equipo.length != 0 || equipo.length != 0">
-	<div class="container espacio">
-              <h2>No tienes ningún evento. Crea uno nuevo o inscríbete!</h2> 
-    </div>  
-              
-</div>
+<br>
+<br>
+<br>
+<br>
+	<div class="jumbotron list-group" ng-hide="equipo.length != 0 || equipo.length != 0">
+		<center>
+			<h2>No tienes ningún evento</h2> 
+	    </center>      
+	</div>
       
 </div>
 

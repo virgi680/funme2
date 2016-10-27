@@ -12,15 +12,17 @@ angular
 	          vm.event = event;
 	          $scope.unirse = function(){
 	        	  console.log("UNIRSE");
-		      		/*$http.get(url+'unirseAEvento?nombre='+vm.event.nombre+'&lugar='+vm.event.lugar+'&email='+vm.event.emailLogin)
-		      		.success(function(data) {
-		      			console.log(TE HAS UNIDO);
-		      			//data.emailLogin = email;
-		      			//alert.show('Edited', data);
-		      		}).error(function(data) {
-		      			console.log(NO TE HAS UNIDO);
-		      			//$("#err").modal();
-		      		});*/
+	        	  $http.post(url+'unirseAEvento?email='+vm.event.emailLogin+'&descripcion='+vm.event.descripcion+'&categoria='+vm.event.categoria+'&hora='+vm.event.hora+'&dia='+vm.event.dia+'&aforo='+vm.event.aforo+'&nombre='+vm.event.nombre+'&lugar='+vm.event.lugar)
+					.success(function(data) {
+						console.log("TE HAS UNIDO");
+						$("#ok").modal();
+					}).error(function(data) {
+						console.log("NO TE HAS UNIDO");
+						//$("#err").modal();
+					});
+	          }
+	          $scope.ok = function(){
+	        	  location.href="../MisEventos/MisEventos.html?email="+vm.event.emailLogin;
 	          }
         },
         controllerAs: 'vm'
