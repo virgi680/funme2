@@ -14,8 +14,8 @@ angular
 	        	  console.log("UNIRSE");
 	        	  $http.post(url+'unirseAEvento?email='+vm.event.emailLogin+'&descripcion='+vm.event.descripcion+'&categoria='+vm.event.categoria+'&hora='+vm.event.hora+'&dia='+vm.event.dia+'&aforo='+vm.event.aforo+'&nombre='+vm.event.nombre+'&lugar='+vm.event.lugar)
 					.success(function(data) {
-						console.log("TE HAS UNIDO");
-						$("#ok").modal();
+						location.href="../MisEventos/MisEventos.html?email="+vm.event.emailLogin;
+						//$("#ok").modal();
 					}).error(function(data) {
 						console.log("NO TE HAS UNIDO");
 						//$("#err").modal();
