@@ -87,8 +87,8 @@
                   <a class="list-group-item">Descripción: {{usuario.descripcion}}</a>
                   <a class="list-group-item">Participantes: {{usuario.integrantes}}/{{usuario.aforo}}</a>
                   
-                  <button type="button" class="btn btn-default" ng-click="cancelarEv()" ng-hide="usuario.creador == usuario.email">Cancelar evento</button>
-                  <button type="button" class="btn btn-default" ng-click="DesunirEv()" ng-hide="usuario.creador != usuario.email">Desunirse</button>
+                  <button type="button" class="btn btn-default" ng-click="cancelarEv()" ng-hide="usuario.creador != usuario.email">Cancelar evento</button>
+                  <button type="button" class="btn btn-default" ng-click="DesunirEv()" ng-hide="usuario.creador == usuario.email">Desunirse</button>
 </div>
 <br>
 <br>
