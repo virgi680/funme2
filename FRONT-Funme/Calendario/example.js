@@ -3,10 +3,10 @@ angular
   .module('mwl.calendar.docs') //you will need to declare your module with the dependencies ['mwl.calendar', 'ui.bootstrap', 'ngAnimate']
   .controller('KitchenSinkCtrl', function(moment, alert, calendarConfig, $http, $scope) {
 	  var url = 'http://192.168.1.65:8080/funme/';
-		var inter = getParameterByName('categoria');
-		var lug = getParameterByName('lugar');
+		$scope.inter = getParameterByName('categoria');
+		$scope.lug = getParameterByName('lugar');
 		$scope.user = getParameterByName('email');
-			$http.get(url+'buscarEventos?categoria='+inter+'&lugar='+lug+'&email='+$scope.user)
+			$http.get(url+'buscarEventos?categoria='+$scope.inter+'&lugar='+$scope.lug+'&email='+$scope.user)
 			.success(function(data) {
 				vm.events = [];
 				for(var i in data){
@@ -28,7 +28,7 @@ angular
     var actions = [{
       label: '<i class=\'glyphicon glyphicon-search\'></i>',
       onClick: function(args) {
-    	  $http.get(url+'informacionEvento?nombre='+args.calendarEvent.title+'&lugar='+lug)
+    	  $http.get(url+'informacionEvento?nombre='+args.calendarEvent.title+'&lugar='+$scope.lug)
 			.success(function(data) {
 				data.emailLogin = $scope.user;
 				alert.show('Edited', data);
@@ -101,7 +101,7 @@ angular
 
     };
     $scope.crearEvento = function(){
-    	location.href="../CrearEvento/crearEvento.html?categoria="+inter+"&lugar="+lug+"&email="+$scope.user;
+    	location.href="../CrearEvento/crearEvento.html?categoria="+$scope.inter+"&lugar="+$scope.lug+"&email="+$scope.user;
     }
     $scope.buscarEvento = function(){
     	location.href="../BuscarEvento/buscarEvento.html?email="+$scope.user;
