@@ -33,9 +33,9 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f6f8f9', end
 .espacior {
 	margin-right: 10px;
 }
-input:invalid {
+/* input:invalid {
 	border: 1.5px solid red;
-}
+} */
 		
 input:valid {
 	border: 1.5px solid green;
