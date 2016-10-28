@@ -26,12 +26,12 @@ angular
     vm.calendarView = 'month';
     vm.viewDate = new Date();
     var actions = [{
-      label: '<i class=\'glyphicon glyphicon-search\'></i>',
-      onClick: function(args) {
-    	  $http.get(url+'informacionEvento?nombre='+args.calendarEvent.title+'&lugar='+$scope.lug)
+      label: '<a class="btn-primary  btn-sm"><span class="glyphicon glyphicon-search"></span></a>',
+      onClick: function(event) {
+    	  $http.get(url+'informacionEvento?nombre='+event.calendarEvent.title+'&lugar='+$scope.lug)
 			.success(function(data) {
 				data.emailLogin = $scope.user;
-				alert.show('Edited', data);
+				alert.show('Clicked', data);
 			}).error(function(data) {
 				$("#err").modal();
 			});
@@ -58,7 +58,14 @@ angular
     };
 
     vm.eventClicked = function(event) {
-      alert.show('Clicked', event);
+  	  $http.get(url+'informacionEvento?nombre='+event.title+'&lugar='+$scope.lug)
+		.success(function(data) {
+			data.emailLogin = $scope.user;
+			alert.show('Clicked', data);
+		}).error(function(data) {
+			$("#err").modal();
+		});
+
     };
 
     vm.eventEdited = function(event) {
