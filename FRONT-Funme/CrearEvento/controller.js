@@ -23,9 +23,9 @@ app.controller('controlador', ['$scope','$http', function($scope, $http) {
 			$scope.insertEvent = function() {
 				if($scope.crearEvento.$valid){
 					var insertarEv = {
-							lugar : $scope.lug,
+							lugar : $scope.lugar,
 							nombre : $scope.nombre,
-							interes : $scope.inte,
+							interes : $scope.interes,
 							descripcion : $scope.desc,
 							aforo : $scope.aforo
 						};
@@ -33,7 +33,7 @@ app.controller('controlador', ['$scope','$http', function($scope, $http) {
 					insertarEv.dia = ("0" + $scope.dia.getDate()).slice(-2) + "/" + ("0" + ($scope.dia.getMonth()+1)).slice(-2)+ "/" + $scope.dia.getFullYear(); 
 					insertarEv.hora = $scope.hora.getHours() + ":" + $scope.hora.getMinutes();
 					console.log(insertarEv.dia);
-					$http.post(url+'crearEvento?dia='+insertarEv.dia+'&hora='+insertarEv.hora+'&lugar='+$scope.lug+'&nombre='+insertarEv.nombre+'&interes='+$scope.inter+'&descripcion='+insertarEv.descripcion+'&aforo='+insertarEv.aforo+'&email='+user)
+					$http.post(url+'crearEvento?dia='+insertarEv.dia+'&hora='+insertarEv.hora+'&lugar='+$scope.lugar+'&nombre='+insertarEv.nombre+'&interes='+$scope.interes+'&descripcion='+insertarEv.descripcion+'&aforo='+insertarEv.aforo+'&email='+user)
 					.success(function(data) {
 						$("#ok").modal();
 					}).error(function(data) {
