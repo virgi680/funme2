@@ -42,9 +42,9 @@ app.controller('controlador', ['$scope','$http', function($scope, $http) {
 				}
 			}
 			$scope.buscarEvento = function(){
-		    	location.href="../BuscarEvento/buscarEvento.html?email="+$scope.user;
+		    	location.href="../BuscarEvento/buscarEvento.html?email="+user;
 		    }
 			$scope.misEventos = function(){
-		    	location.href="../MisEventos/MisEventos.html?email="+$scope.user;
+		    	location.href="../MisEventos/MisEventos.html?email="+user;
 		    }
 } ]);
