@@ -10,17 +10,15 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
   	<!-- Angular Material requires Angular.js Libraries -->
-  	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-animate.js"></script>
   
    	<!-- Bootstrap Material Library -->
    	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
   
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.1/moment.min.js"></script>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/interact.js/1.2.4/interact.min.js"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.js"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-animate.js"></script>
+    <script src= https://cdnjs.cloudflare.com/ajax/libs/angular-i18n/1.5.8/angular-locale_es-es.min.js></script>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.0.0/ui-bootstrap-tpls.min.js"></script>
     <script src="http://cdn.rawgit.com/jkbrzt/rrule/v2.1.0/lib/rrule.js"></script>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/angular-bootstrap-colorpicker/3.0.25/js/bootstrap-colorpicker-module.min.js"></script>
@@ -49,55 +47,56 @@
   	</div>
 	
 <br><br>
-	  <h2 class="text-center color ">{{ vm.calendarTitle }}</h2>
+
+	<h2 class="text-center color ">{{ vm.calendarTitle }}</h2>
 	<h2 class="text-center color ">{{inter}} en {{lug}}</h2>
-	  <div class="row">
+
+		<div class="row">
+
+				<div class="col-md-3 text-center">
+	    			<label class="btn btn-primary btn-lg glyphicon glyphicon-search colorbuscar" ng-click="buscarEvento()">  Volver a buscar</label>
+	    		</div>
 	
-	    <div class="col-md-4 text-center">
-	      <div class="btn-group">
-	
-	        <button
-	          class="btn btn-default"
-	          mwl-date-modifier
-	          date="vm.viewDate"
-	          decrement="vm.calendarView"
-	          ng-click="vm.cellIsOpen = false">
-	          Previous
-	        </button>
-	        <button
-	          class="btn btn-default"
-	          mwl-date-modifier
-	          date="vm.viewDate"
-	          set-to-today
-	          ng-click="vm.cellIsOpen = false">
-	          Today
-	        </button>
-	        <button
-	          class="btn btn-default"
-	          mwl-date-modifier
-	          date="vm.viewDate"
-	          increment="vm.calendarView"
-	          ng-click="vm.cellIsOpen = false">
-	          Next
-	        </button>
-	      </div>
+	    <div class="col-md-6 text-center">
+	      <div class="btn-group" align="center"> 
+		        <label class="btn btn-default"  ng-model="vm.calendarView" uib-btn-radio="'year'" ng-click="vm.cellIsOpen = false">Año</label>
+		        <label class="btn btn-default" ng-model="vm.calendarView" uib-btn-radio="'month'" ng-click="vm.cellIsOpen = false">Mes</label>
+		        <label class="btn btn-default" ng-model="vm.calendarView" uib-btn-radio="'week'" ng-click="vm.cellIsOpen = false">Semana</label>
+		        <label class="btn btn-default " ng-model="vm.calendarView" uib-btn-radio="'day'" ng-click="vm.cellIsOpen = false">Dia</label>   
+	      	</div>
+	      	<br>
+	      	<div>
+	      		<button
+			          class="btn btn-default espaciotop "
+			          mwl-date-modifier
+			          date="vm.viewDate"
+			          decrement="vm.calendarView"
+			          ng-click="vm.cellIsOpen = false">
+			          <<
+			     </button>
+	      		 <button
+				          class="btn btn-default espaciotop "
+				          mwl-date-modifier
+				          date="vm.viewDate"
+				          set-to-today
+				          ng-click="vm.cellIsOpen = false">
+				          HOY
+				     </button>
+			        <button
+			          class="btn btn-default espaciotop "
+			          mwl-date-modifier
+			          date="vm.viewDate"
+			          increment="vm.calendarView"
+			          ng-click="vm.cellIsOpen = false">
+			          >>
+			        </button>
+	      	</div>
 	    </div>
-	    
-	    <div class="col-md-2 text-center">
-	    	<label class="btn btn-default" ng-click="buscarEvento()">Volver a buscar</label>
-	     </div>
-	     <div class="col-md-2 text-center">
-	       <label class="btn btn-default" ng-click="crearEvento()">Añadir evento</label>
-	     </div>
-	
-	    <br class="visible-xs visible-sm">
-	
-	    <div class="col-md-4 text-center">
-	      <div class="btn-group">
-	        <label class="btn btn-default" ng-model="vm.calendarView" uib-btn-radio="'year'" ng-click="vm.cellIsOpen = false">Year</label>
-	        <label class="btn btn-default" ng-model="vm.calendarView" uib-btn-radio="'month'" ng-click="vm.cellIsOpen = false">Month</label>
-	        <label class="btn btn-default" ng-model="vm.calendarView" uib-btn-radio="'week'" ng-click="vm.cellIsOpen = false">Week</label>
-	        <label class="btn btn-default" ng-model="vm.calendarView" uib-btn-radio="'day'" ng-click="vm.cellIsOpen = false">Day</label>
+
+	    <div class="col-md-3 text-center">
+		       <label class="btn btn-success btn-lg glyphicon glyphicon-plus" ng-click="crearEvento()"> Añadir evento</label>
+		    </div>
+
 	      </div>
 	    </div>
 	

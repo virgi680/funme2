@@ -2,6 +2,8 @@ angular.module('mwl.calendar.docs', ['mwl.calendar', 'ngAnimate', 'ui.bootstrap'
 angular
   .module('mwl.calendar.docs') //you will need to declare your module with the dependencies ['mwl.calendar', 'ui.bootstrap', 'ngAnimate']
   .controller('KitchenSinkCtrl', function(moment, alert, calendarConfig, $http, $scope) {
+	  calendarConfig.allDateFormats.angular.title.week = 'Semana {week} de {year}';
+	  calendarConfig.i18nStrings.weekNumber = 'Semana {week}';
 	  var url = 'http://192.168.1.65:8080/funme/';
 		$scope.inter = getParameterByName('categoria');
 		$scope.lug = getParameterByName('lugar');
@@ -26,12 +28,12 @@ angular
     vm.calendarView = 'month';
     vm.viewDate = new Date();
     var actions = [{
-      label: '<a class="btn-primary  btn-sm"><span class="glyphicon glyphicon-search"></span></a>',
-      onClick: function(event) {
-    	  $http.get(url+'informacionEvento?nombre='+event.calendarEvent.title+'&lugar='+$scope.lug)
+      label: '<i class=\'glyphicon glyphicon-search\'></i>',
+      onClick: function(args) {
+    	  $http.get(url+'informacionEvento?nombre='+args.calendarEvent.title+'&lugar='+$scope.lug)
 			.success(function(data) {
 				data.emailLogin = $scope.user;
-				alert.show('Clicked', data);
+				alert.show('Edited', data);
 			}).error(function(data) {
 				$("#err").modal();
 			});
@@ -58,14 +60,7 @@ angular
     };
 
     vm.eventClicked = function(event) {
-  	  $http.get(url+'informacionEvento?nombre='+event.title+'&lugar='+$scope.lug)
-		.success(function(data) {
-			data.emailLogin = $scope.user;
-			alert.show('Clicked', data);
-		}).error(function(data) {
-			$("#err").modal();
-		});
-
+      alert.show('Clicked', event);
     };
 
     vm.eventEdited = function(event) {
