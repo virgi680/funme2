@@ -31,33 +31,52 @@
     <link href="http://mattlewis92.github.io/angular-bootstrap-calendar/dist/css/angular-bootstrap-calendar.min.css" rel="stylesheet">
   </head>
 
-<body class= "container colorsito" ng-controller="KitchenSinkCtrl as vm">
+<body class= "colorsito font" ng-controller="KitchenSinkCtrl as vm">
 
-  	<div class="container-fluid ">
-	 	<nav class="navbar navbar-default navbar-fixed-top">
-		    <div class="navbar-header">
-		      <a href="../index.html" > <img class="img-thumbnail" src="../IMG/logo.png" width="135" height="135"></a>
-		    </div>
-		    <ul class="nav navbar-nav navbar-right">
-		    	<li><a ng-click="buscarEvento()"><span class="glyphicon glyphicon-search"></span> Buscar Eventos</a></li>
-		      <li><a ng-click="misEventos()"><span class="glyphicon glyphicon-list-alt"></span> Mis Eventos</a></li>
-		      <li><a href="../index.html"><span class="glyphicon glyphicon-log-in"></span> Cerrar Sesión</a></li>
-		    </ul>
-		</nav>
-  	</div>
-	
-<br><br>
+   <nav class="navbar navbar-default">
+  <div class="container">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar9">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      
+      <div class="brand-centered">
+      <a class="navbar-brand" href="../index.html"><img style=" width: 50px; height: 56px; padding: 0px;" src="../IMG/LogoFunMe.png" alt="logo">
+      </a>
+      </div>
+      
+      <div id="navbar9" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav navbar-left">
+          <li class="active"><a href="#">Home</a></li>
+          <li><a href="#">About</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li class="active"><a href="#">Home</a></li>
+          <li><a href="#">About</a></li>
+        </ul>
+      </div>
+      <!--/.nav-collapse -->
+    </div>
+    <!--/.container-fluid -->
+ </div> 
+  </div> 
+  </nav>
 
 	<h2 class="text-center color ">{{ vm.calendarTitle }}</h2>
-	<h2 class="text-center color ">{{inter}} en {{lug}}</h2>
+	<h2 class="text-center color">{{inter}} en {{lug}}</h2>
 
 		<div class="row">
 
-				<div class="col-md-3 text-center">
-	    			<label class="btn btn-primary btn-lg glyphicon glyphicon-search colorbuscar" ng-click="buscarEvento()">  Volver a buscar</label>
+				<div class="col-md-3 text-center col-md-offset-1">
+	    			<label class="btn btn-primary btn-lg glyphicon glyphicon-search font" ng-click="buscarEvento()">  Volver a buscar</label>
 	    		</div>
 	
-	    <div class="col-md-6 text-center">
+	    <div class="col-md-4 text-center">
 	      <div class="btn-group" align="center"> 
 		        <label class="btn btn-default"  ng-model="vm.calendarView" uib-btn-radio="'year'" ng-click="vm.cellIsOpen = false">Año</label>
 		        <label class="btn btn-default" ng-model="vm.calendarView" uib-btn-radio="'month'" ng-click="vm.cellIsOpen = false">Mes</label>
@@ -106,7 +125,7 @@
 	
 	<div class="row">
 
-		    <div class="calendario col-md-12 ">
+		    <div class="calendario col-md-10 col-md-offset-1 ">
 	  <mwl-calendar
 	    events="vm.events"
 	    view="vm.calendarView"
@@ -123,9 +142,12 @@
 	    cell-auto-open-disabled="true"
 	    on-timespan-click="vm.timespanClicked(calendarDate, calendarCell)">
 	  </mwl-calendar>
+	  
+	  
 	  </div>
-	</div>
-<br><br>
+	  </div>
+	<br><br>
+
 
   </body>
 </html>

@@ -4,51 +4,76 @@ angular
   .controller('KitchenSinkCtrl', function(moment, alert, calendarConfig, $http, $scope) {
 	  calendarConfig.allDateFormats.angular.title.week = 'Semana {week} de {year}';
 	  calendarConfig.i18nStrings.weekNumber = 'Semana {week}';
+
 	  var url = 'http://192.168.1.65:8080/funme/';
 		$scope.inter = getParameterByName('categoria');
 		$scope.lug = getParameterByName('lugar');
 		$scope.user = getParameterByName('email');
-			$http.get(url+'buscarEventos?categoria='+$scope.inter+'&lugar='+$scope.lug+'&email='+$scope.user)
-			.success(function(data) {
-				vm.events = [];
-				for(var i in data){
-					var event = {
-							title : data[i].title,
-							startsAt : new Date(data[i].year, (data[i].month-1), data[i].day, data[i].hour, data[i].minute),
-							actions : actions
-					};
-					vm.events.push(event);
-				}
-			}).error(function(data) {
-				$("#err").modal();
-			});
+		
+//			$http.get(url+'buscarEventos?categoria='+$scope.inter+'&lugar='+$scope.lug+'&email='+$scope.user)
+//			.success(function(data) {
+//				vm.events = [ {
+//			        title: 'An event',
+//			        color: calendarConfig.colorTypes.warning,
+//			        startsAt: new Date(2016,10,30,15,0),
+//			        actions: actions
+//			      }];
+//				for(var i in data){
+//					var event = {
+//							title : data[i].title,
+//							startsAt : new Date(data[i].year, (data[i].month-1), data[i].day, data[i].hour, data[i].minute),
+//							actions : actions
+//					};
+//					vm.events.push(event);
+//				}
+//			}).error(function(data) {
+//				$("#err").modal();
+//			});
+console.log(calendarConfig.colorTypes);
     var vm = this;
 
     //These variables MUST be set as a minimum for the calendar to work
     vm.calendarView = 'month';
     vm.viewDate = new Date();
     var actions = [{
-      label: '<i class=\'glyphicon glyphicon-search\'></i>',
+      label: '<span class="glyphicon glyphicon-search" </span>',
       onClick: function(args) {
     	  $http.get(url+'informacionEvento?nombre='+args.calendarEvent.title+'&lugar='+$scope.lug)
 			.success(function(data) {
 				data.emailLogin = $scope.user;
-				alert.show('Edited', data);
+				alert.show('Clicked', data);
 			}).error(function(data) {
 				$("#err").modal();
 			});
         
       }
     }];
-
+    vm.events =  [{
+        title: 'An event',
+        color: calendarConfig.colorTypes.warning,
+        startsAt: new Date(2016,9,30,15,0),
+        actions: actions
+      },{
+          title: 'asasdsd',
+          color: calendarConfig.colorTypes.warning,
+          startsAt: new Date(2016,9,2,17,0),
+          actions: actions
+        },
+        {
+            title: 'Aasdddsdast',
+            color: calendarConfig.colorTypes.warning,
+            startsAt: new Date(2016,9,15,18,0),
+            actions: actions
+          }];
+  
     function getParameterByName(name) {
 		   name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
 		   var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
 		   results = regex.exec(location.search);
 		   return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
 		}
+    
     vm.addEvent = function() {
-    	
       vm.events.push({
         title: 'New event',
         startsAt: moment().startOf('day').toDate(),

@@ -3,7 +3,7 @@
 {
 /* Ubicación de la imagen */
 
-	  background-image: url(../IMG/bgris.jpg);
+	  background-image: url(../IMG/basul.jpg);
 
 	  background-position: center center;
 
@@ -16,7 +16,11 @@
 	  background-color: #464646;
 	
 }
-
+.font {
+  font-family: 'Century Gothic', sans-serif;
+  font-weight: 200;
+  letter-spacing: 1px;
+}
 .espacioH1{
 	margin-top: 50px;
 }
@@ -66,4 +70,48 @@
 }
 .tt-suggestion p {
 	margin: 0;
+}
+       .navbar-brand {
+  padding: 0px;
+}
+.navbar-brand>img {
+  height: 100%;
+  padding: 15px;
+ 
+}
+.brand-centered {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  width: 100%;
+  left: 0;
+  top: 0;
+}
+.brand-centered .navbar-brand {
+  display: flex;
+  align-items: center;
+}
+
+/* CSS Transform Align Navbar Brand Text ... This could also be achieved with table / table-cells */
+.navbar-alignit .navbar-header {
+	  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  height: 50px;
+}
+.navbar-alignit .navbar-brand {
+	top: 50%;
+	display: block;
+	position: relative;
+	height: auto;
+	transform: translate(0,-50%);
+	margin-right: 5px;
+  margin-left: 5px;
+}
+.menu{
+		margin-right: -100px;
+  margin-left: -100px;
+}
+.navbar-nav>li>.dropdown-menu {
+	z-index: 9999;
 }

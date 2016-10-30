@@ -19,10 +19,10 @@
         <pre>{{ vm.event.descripcion }}</pre>
         </p>
         <p>Creador:
-	        <div ng-hide="vm.event.emailLogin !== vm.event.creador">
+	        <div ng-hide="vm.event.emailLogin === vm.event.creador">
 		        <pre>Eres el creador del evento</pre>
 	        </div>
-	        <div ng-hide="vm.event.emailLogin === vm.event.creador">
+	        <div ng-hide="vm.event.emailLogin !== vm.event.creador">
 		        <pre>{{vm.event.creador}}</pre>
 	        </div>
         </p>

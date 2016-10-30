@@ -3,7 +3,9 @@
 var app = angular.module('app', [])
 app.controller('controlador', ['$scope','$http', function($scope, $http) {
 	var user = getParameterByName('email');
+	
 	$(document).ready(function(){
+		
 	    // Defining the local dataset
 	    var provincias = ['Alava','Albacete','Alicante','Almería','Asturias','Avila','Badajoz','Barcelona','Burgos','Cáceres',
 	    	'Cádiz','Cantabria','Castellón','Ciudad Real','Córdoba','La Coruña','Cuenca','Gerona','Granada','Guadalajara',
@@ -28,11 +30,13 @@ app.controller('controlador', ['$scope','$http', function($scope, $http) {
 	        name: 'provincias',
 	        source: provincias
 	    }).on('typeahead:selected', function(event, selection) {
-			  
+	    
 			  // the second argument has the info you want
 			  $scope.lugar = selection;
 			  // clearing the selection requires a typeahead method
-			  $(this).typeahead('setQuery', '');
+			  $(this).typeahead('close');
+			
+			
 			});
 	});
 	function getParameterByName(name) {

@@ -43,24 +43,48 @@
  
 </head>
 
-<body class="colorsito" ng-controller="controlador">
-
-  <div class="container-fluid ">
-    <nav class="navbar navbar-default navbar-fixed-top">
+<body class="colorsito font" ng-controller="controlador">
+  <nav class="navbar navbar-default">
+  <div class="container">
+    <div class="container-fluid">
       <div class="navbar-header">
-        <a href="../BuscarEvento/buscarEvento.html" > <img class="img-thumbnail" src="../IMG/logo.png" width="135" height="135"></a>
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar9">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
       </div>
-      <ul class="nav navbar-nav navbar-right">
-      		<li><a ng-click="buscarEvento()"><span class="glyphicon glyphicon-search"></span> Buscar Eventos</a></li>
+      
+      <div class="brand-centered">
+      <a class="navbar-brand" href="../index.html"><img style=" width: 50px; height: 56px; padding: 0px;" src="../IMG/LogoFunMe.png" alt="logo">
+      </a>
+      </div>
+      
+      <div id="navbar9" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav navbar-left menu">
+       		<li><a ng-click="buscarEvento()"><span class="glyphicon glyphicon-search"></span> Buscar Eventos</a></li>
+
+        </ul>
+        <ul class="nav navbar-nav navbar-right menu ">
+   
 		      <li><a ng-click="misEventos()"><span class="glyphicon glyphicon-list-alt"></span> Mis Eventos</a></li>
 		      <li><a href="../index.html"><span class="glyphicon glyphicon-log-in"></span> Cerrar Sesión</a></li>
-		</ul>
-    </nav>
-  </div>
-<br><br>
+        </ul>
+      </div>
+      <!--/.nav-collapse -->
+    </div>
+    <!--/.container-fluid -->
+     </div>  
+</div>
+  </nav>
+  
+    
+
 
 <div class="container  ">
-  <div class="row espacioH1">
+  <div class="row ">
     <div class="col-md-2"></div>
       <div class="color col-md-8 ">
         <h1>Mis Eventos</h1>      
