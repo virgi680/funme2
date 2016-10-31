@@ -8,6 +8,7 @@ app.controller('controlador', ['$scope','$http', function($scope, $http) {
 	$http.get(url+'misEventos?email='+$scope.user)
 	.success(function(data) {
 		$scope.eventosTodos = data;
+		$scope.eventos = $scope.eventosTodos;
 	}).error(function(data) {
 		$("#err").modal();
 	});
@@ -51,9 +52,10 @@ app.controller('controlador', ['$scope','$http', function($scope, $http) {
 		  		  }
 	  		 }
 	  		 else{
-	  			$scope.eventos = $scope.eventosTodos;
+	  			for(var i in $scope.eventosTodos){
+	  				$scope.eventos.push($scope.eventosTodos[i]);
+	  			}
 	  		 }
-	  		
 	  	  }
 	}
 }]);

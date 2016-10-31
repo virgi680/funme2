@@ -30,9 +30,9 @@ angular
 						//$("#err").modal();
 					});
 	          }
-	          /*$scope.desunirse = function(){
+	          $scope.desunirse = function(){
 	        	//MODAL PARA PRGEUNTAR SI ES SEGURO QUE LO QUIERE ELIMINAR
-	        	  $http.post(url+'desunirseEvento?hora='+vm.event.hora+'&dia='+vm.event.dia+'&nombre='+vm.event.nombre+'&lugar='+vm.event.lugar)
+	        	  $http.post(url+'desunirseEvento?hora='+vm.event.hora+'&dia='+vm.event.dia+'&nombre='+vm.event.nombre+'&lugar='+vm.event.lugar+'&email='+vm.event.emailLogin)
 					.success(function(data) {
 						location.href="../MisEventos/MisEventos.html?email="+vm.event.emailLogin;
 						//$("#ok").modal();
@@ -40,7 +40,7 @@ angular
 						console.log("NO TE HAS UNIDO");
 						//$("#err").modal();
 					});
-	          }*/
+	          }
         },
         controllerAs: 'vm'
       });

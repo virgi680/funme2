@@ -68,13 +68,7 @@
         </ul>
         <ul class="nav navbar-nav navbar-right menu ">
    
-		      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-list-alt"></span>Mis Eventos<span class="caret"></span></a>
-		      	<ul class="dropdown-menu">
-		      		<li><a ng-click="events('creados')">Creados</a></li>
-		      		<li><a ng-click="events('unidos')">Unidos</a></li>
-		      		<li><a ng-click="events()">Todos</a></li>
-		      	</ul>
-		      </li>
+		     <li><a ng-click="misEventos()"><span class="glyphicon glyphicon-list-alt"></span> Mis Eventos</a></li>
 		      <li><a href="../index.html"><span class="glyphicon glyphicon-log-in"></span> Cerrar Sesión</a></li>
         </ul>
       </div>
@@ -92,7 +86,16 @@
   <div class="row ">
     <div class="col-md-2"></div>
       <div class="color col-md-8 ">
-        <h1>Mis Eventos</h1>      
+      	<div class="row">
+      	<div class="col-md-4 col-md-offset-4">
+	        <h1>Mis Eventos</h1>
+	        <div class="btn-group">
+	        <button type="button" class="btn btn-default" ng-click="events('todos')">Todos</button>
+	        	<button type="button" class="btn btn-default" ng-click="events('creados')">Creados</button>
+	        	<button type="button" class="btn btn-default" ng-click="events('unidos')">Unidos</button>
+	        </div>
+	        </div>
+        </div>
       </div>
     <div class="col-md-2"></div>
   </div>
@@ -103,7 +106,7 @@
     <div class="col-md-2 "></div>
     <div class="col-md-8 ">
     
-
+<br>
   <div class="jumbotron list-group " ng-repeat="evento in eventos" ng-hide="eventos.length == 0 || eventos.length == 0">
 <div class="container espacio">
               <h2>{{evento.nombre}}</h2> 
