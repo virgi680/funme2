@@ -7,7 +7,7 @@ app.controller('controlador', ['$scope','$http', function($scope, $http) {
 	$scope.eventos = [];
 	$http.get(url+'misEventos?email='+$scope.user)
 	.success(function(data) {
-		$scope.eventos = data;
+		$scope.eventosTodos = data;
 	}).error(function(data) {
 		$("#err").modal();
 	});
@@ -33,4 +33,27 @@ app.controller('controlador', ['$scope','$http', function($scope, $http) {
 				//$("#err").modal();
 			});
     }
+	$scope.events = function(evento){
+		$scope.eventos = [];
+	  	  if(evento == "creados"){
+	  		  for(var i in $scope.eventosTodos){
+	  			  if($scope.eventosTodos[i].creador == $scope.user){
+	  				$scope.eventos.push($scope.eventosTodos[i]);
+	  			  }
+	  		  }
+	  	  }
+	  	  else{
+	  		 if(evento == "unidos"){
+	  			for(var i in $scope.eventosTodos){
+		  			  if($scope.eventosTodos[i].creador != $scope.user){
+		  				$scope.eventos.push($scope.eventosTodos[i]);
+		  			  }
+		  		  }
+	  		 }
+	  		 else{
+	  			$scope.eventos = $scope.eventosTodos;
+	  		 }
+	  		
+	  	  }
+	}
 }]);
