@@ -104,14 +104,13 @@
 
   <div class=" container jumbotron col-md-5 sep " ng-repeat="evento in eventos" ng-hide="eventos.length == 0 || eventos.length == 0">
 
-			<div class="container espacio text-center">
+			<div class="container espacio text-center text-capitalize">
               <h2>{{evento.nombre}}</h2> 
              </div>  
-              <a class="list-group-item">Nombre del evento: {{evento.nombre}}</a>
-               <a  class="list-group-item">Email: {{evento.creador}}</a>
-                <a class="list-group-item">Categoria: {{evento.categoria}}</a>
+               <a  class="list-group-item">Email del creador: {{evento.creador}}</a>
+                <a class="list-group-item text-capitalize">Categoria: {{evento.categoria}}</a>
                 <a class="list-group-item">Fecha: {{evento.dia}} - {{evento.hora}}</a>
-                  <a class="list-group-item">Lugar: {{evento.lugar}}</a>
+                  <a class="list-group-item text-capitalize">Lugar: {{evento.lugar}}</a>
                   <a class="list-group-item">Descripción: {{evento.descripcion}}</a>
                   <a class="list-group-item">Participantes: {{evento.integrantes}}/{{evento.aforo}}</a>
                   <br>

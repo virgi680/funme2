@@ -50,16 +50,16 @@
  <form > 
   <div class="form-group">
     <label for="inputdefault">Email:</label>
-    <input class="form-control" id="email" type="email" ng-model="email">
+    <input class="form-control" id="email" type="email" ng-model="email" placeholder="email">
   </div>
   <div class="form-group">
     <label for="inputdefault">Contraseña:</label>
-    <input class="form-control" id="pwd" type="password" ng-model="password">
+    <input class="form-control" id="pwd" type="password" ng-model="password" placeholder="password">
   </div>
   <div class=" text-center">
     <a href="Registro/registro.html" class="btn btn-default espacior">Registro</a>
     
-    <a class="btn btn-default espaciol" ng-click="login()">Login</a>
+    <input type="submit" class="btn btn-default espaciol" ng-click="login()" value="Login" />
   </div>
 
 </form>
