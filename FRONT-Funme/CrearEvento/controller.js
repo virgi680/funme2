@@ -21,6 +21,9 @@ app.controller('controlador', ['$scope','$http', function($scope, $http) {
 				location.href=history.go(-1);
 				//location.href="../Calendario/calendario.html?categoria="+$scope.inter+"&lugar="+$scope.lug+"&email="+user;
 			}
+			$scope.creado = function() {
+				location.href="../MisEventos/MisEventos.html?email="+user;
+			}
 			$scope.insertEvent = function() {
 				if($scope.crearEvento.$valid){
 					var insertarEv = {

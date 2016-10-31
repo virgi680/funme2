@@ -56,4 +56,7 @@ app.controller('controlador', ['$scope','$http', function($scope, $http) {
 	$scope.crearEvento = function(){
     	location.href="../CrearEvento/crearEvento.html?email="+user;
     }
+	$scope.buscarEvento = function(){
+    	location.href="buscarEvento.html?email="+user;
+    }
 }]);
