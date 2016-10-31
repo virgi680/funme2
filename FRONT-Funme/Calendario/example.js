@@ -10,32 +10,32 @@ angular
 		$scope.lug = getParameterByName('lugar');
 		$scope.user = getParameterByName('email');
 		
-//			$http.get(url+'buscarEventos?categoria='+$scope.inter+'&lugar='+$scope.lug+'&email='+$scope.user)
-//			.success(function(data) {
-//				vm.events = [ {
-//			        title: 'An event',
-//			        color: calendarConfig.colorTypes.warning,
-//			        startsAt: new Date(2016,10,30,15,0),
-//			        actions: actions
-//			      }];
-//				for(var i in data){
-//					var event = {
-//							title : data[i].title,
-//							startsAt : new Date(data[i].year, (data[i].month-1), data[i].day, data[i].hour, data[i].minute),
-//							actions : actions
-//					};
-//					vm.events.push(event);
-//				}
-//			}).error(function(data) {
-//				$("#err").modal();
-//			});
+			$http.get(url+'buscarEventos?categoria='+$scope.inter+'&lugar='+$scope.lug+'&email='+$scope.user)
+			.success(function(data) {
+				vm.events = [ /*{
+			        title: 'An event',
+			        color: calendarConfig.colorTypes.warning,
+			        startsAt: new Date(2016,10,30,15,0),
+			        actions: actions
+			      }*/];
+				for(var i in data){
+					var event = {
+							title : data[i].title,
+							startsAt : new Date(data[i].year, (data[i].month-1), data[i].day, data[i].hour, data[i].minute),
+							actions : actions
+					};
+					vm.events.push(event);
+				}
+			}).error(function(data) {
+				$("#err").modal();
+			});
 console.log(calendarConfig.colorTypes);
     var vm = this;
 
     //These variables MUST be set as a minimum for the calendar to work
     vm.calendarView = 'month';
     vm.viewDate = new Date();
-    var actions = [{
+    var actions = [/*{
       label: '<span class="glyphicon glyphicon-search" </span>',
       onClick: function(args) {
     	  $http.get(url+'informacionEvento?nombre='+args.calendarEvent.title+'&lugar='+$scope.lug)
@@ -47,8 +47,8 @@ console.log(calendarConfig.colorTypes);
 			});
         
       }
-    }];
-    vm.events =  [{
+    }*/];
+    /*vm.events =  [{
         title: 'An event',
         color: calendarConfig.colorTypes.warning,
         startsAt: new Date(2016,9,30,15,0),
@@ -64,7 +64,7 @@ console.log(calendarConfig.colorTypes);
             color: calendarConfig.colorTypes.warning,
             startsAt: new Date(2016,9,15,18,0),
             actions: actions
-          }];
+          }];*/
   
     function getParameterByName(name) {
 		   name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
@@ -85,7 +85,17 @@ console.log(calendarConfig.colorTypes);
     };
 
     vm.eventClicked = function(event) {
-      alert.show('Clicked', event);
+    	var dia = ("0" + event.startsAt.getDate()).slice(-2) + "/" + ("0" + (event.startsAt.getMonth()+1)).slice(-2)+ "/" + event.startsAt.getFullYear(); 
+		var hora = event.startsAt.getHours() + ":" + event.startsAt.getMinutes();
+
+    	 $http.get(url+'informacionEvento?nombre='+event.title+'&lugar='+$scope.lug+'&dia='+dia+'&hora='+hora+'&email='+$scope.user)
+			.success(function(data) {
+				data.emailLogin = $scope.user;
+				alert.show('Clicked', data);
+			}).error(function(data) {
+				console.log("modal err");
+				$("#err2").modal();
+			});
     };
 
     vm.eventEdited = function(event) {

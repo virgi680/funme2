@@ -19,10 +19,10 @@
         <pre>{{ vm.event.descripcion }}</pre>
         </p>
         <p>Creador:
-	        <div ng-hide="vm.event.emailLogin === vm.event.creador">
+	        <div ng-hide="vm.event.emailLogin !== vm.event.creador">
 		        <pre>Eres el creador del evento</pre>
 	        </div>
-	        <div ng-hide="vm.event.emailLogin !== vm.event.creador">
+	        <div ng-hide="vm.event.emailLogin === vm.event.creador">
 		        <pre>{{vm.event.creador}}</pre>
 	        </div>
         </p>
@@ -32,25 +32,7 @@
       </div>
       <div class="modal-footer">
         <button class="btn btn-primary" ng-click="$close()">Cancelar</button>
-        <button class="btn btn-primary" ng-click="unirse()" ng-disabled="vm.event.participantes === vm.event.aforo" ng-hide="vm.event.emailLogin === vm.event.creador">Unirse</button>      	
+        <button class="btn btn-primary" ng-click="unirse()" ng-disabled="vm.event.participantes === vm.event.aforo" ng-hide="vm.event.emailLogin === vm.event.creador || vm.event.unido === 'SI'">Unirse</button>
+		<button class="btn btn-primary" ng-click="desunirse()" ng-hide="vm.event.unido !== 'SI' || vm.event.emailLogin === vm.event.creador">Desunirse</button>
+		<button class="btn btn-primary" ng-click="eliminarEv()" ng-hide="vm.event.emailLogin !== vm.event.creador ">Eliminar Evento</button>      	
       </div>
-      <div class="modal fade" id="err" role="dialog">
-    <div class="modal-dialog">
-    
-    <div class="modal fade" id="err" role="dialog">
-	    <div class="modal-dialog">
-	      <!-- Modal content-->
-	      <div class="modal-content">
-	        <div class="modal-header">
-	          <h4 class="modal-title">Información</h4>
-	        </div>
-	        <div class="modal-body">
-	          <p>Te has unido al evento</p>
-	        </div>
-	        <div class="modal-footer">
-	          		<button type="button" class="btn btn-default" ng-click="ok()">Cerrar</button>
-	        </div>
-	      </div>
-		</div>
-	</div>
-    
