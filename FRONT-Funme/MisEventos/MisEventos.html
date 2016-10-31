@@ -64,7 +64,7 @@
       <div id="navbar9" class="navbar-collapse collapse">
         <ul class="nav navbar-nav navbar-left menu">
        		<li><a ng-click="buscarEvento()"><span class="glyphicon glyphicon-search"></span> Buscar Eventos</a></li>
-			<li><a ng-click="crearEvento()"><span class="glyphicon glyphicon-search"></span> Crear Evento</a></li>
+			<li><a ng-click="crearEvento()"><span class="glyphicon glyphicon-plus"></span> Crear Evento</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right menu ">
    
@@ -110,7 +110,7 @@
               <a class="list-group-item">Nombre del evento: {{evento.nombre}}</a>
                <a  class="list-group-item">Email: {{evento.creador}}</a>
                 <a class="list-group-item">Categoria: {{evento.categoria}}</a>
-                <a class="list-group-item">Fecha: {{evento.dia}} - {{usuario.hora}}</a>
+                <a class="list-group-item">Fecha: {{evento.dia}} - {{evento.hora}}</a>
                   <a class="list-group-item">Lugar: {{evento.lugar}}</a>
                   <a class="list-group-item">Descripción: {{evento.descripcion}}</a>
                   <a class="list-group-item">Participantes: {{evento.integrantes}}/{{evento.aforo}}</a>

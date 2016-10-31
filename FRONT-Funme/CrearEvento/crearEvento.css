@@ -39,7 +39,7 @@
 input:valid {
 	border: 1px solid green;
 }
-       .navbar-brand {
+.navbar-brand {
   padding: 0px;
 }
 .navbar-brand>img {
@@ -67,16 +67,20 @@ input:valid {
   transform-style: preserve-3d;
   height: 50px;
 }
+
 .navbar-alignit .navbar-brand {
 	top: 50%;
 	display: block;
 	position: relative;
 	height: auto;
 	transform: translate(0,-50%);
-	margin-right: 15px;
-  margin-left: 15px;
+	margin-right: 5px;
+  margin-left: 5px;
 }
-
+.menu{
+		margin-right: -100px;
+  margin-left: -100px;
+}
 .navbar-nav>li>.dropdown-menu {
 	z-index: 9999;
 }

@@ -78,8 +78,7 @@
   margin-left: 5px;
 }
 .menu{
-		margin-right: -100px;
-  margin-left: -100px;
+
 }
 .navbar-nav>li>.dropdown-menu {
 	z-index: 9999;

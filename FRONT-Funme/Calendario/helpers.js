@@ -13,6 +13,7 @@ angular
 	          $scope.unirse = function(){
 	        	  $http.post(url+'unirseAEvento?email='+vm.event.emailLogin+'&descripcion='+vm.event.descripcion+'&categoria='+vm.event.categoria+'&hora='+vm.event.hora+'&dia='+vm.event.dia+'&aforo='+vm.event.aforo+'&nombre='+vm.event.nombre+'&lugar='+vm.event.lugar)
 					.success(function(data) {
+						console.log(data);
 						location.href="../MisEventos/MisEventos.html?email="+vm.event.emailLogin;
 						//$("#ok").modal();
 					}).error(function(data) {
@@ -35,7 +36,7 @@ angular
 	        	//MODAL PARA PRGEUNTAR SI ES SEGURO QUE LO QUIERE ELIMINAR
 	        	  $http.post(url+'desunirseEvento?hora='+vm.event.hora+'&dia='+vm.event.dia+'&nombre='+vm.event.nombre+'&lugar='+vm.event.lugar+'&email='+vm.event.emailLogin)
 					.success(function(data) {
-						location.href="../MisEventos/MisEventos.html?email="+vm.event.emailLogin;
+						location.href="calendario.html?email="+vm.event.emailLogin+'&categoria='+vm.event.categoria+'&lugar='+vm.event.lugar;
 						//$("#ok").modal();
 					}).error(function(data) {
 						console.log("NO TE HAS UNIDO");

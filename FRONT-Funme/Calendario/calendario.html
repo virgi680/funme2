@@ -34,13 +34,14 @@
 
 <body class= "colorsito font" ng-controller="KitchenSinkCtrl as vm">
 
-   <nav class="navbar navbar-default">
+  <nav class="navbar navbar-default">
   <div class="container">
     <div class="container-fluid">
       <div class="navbar-header">
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar9">
           <span class="sr-only">Toggle navigation</span>
           <span class="icon-bar"></span>
+          
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
@@ -54,28 +55,29 @@
       <div id="navbar9" class="navbar-collapse collapse">
         <ul class="nav navbar-nav navbar-left menu">
        		<li><a ng-click="buscarEvento()"><span class="glyphicon glyphicon-search"></span> Buscar Eventos</a></li>
-
+			<li><a ng-click="crearEvento()"><span class="glyphicon glyphicon-plus"></span> Crear Evento</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right menu ">
    
-		      <li><a ng-click="misEventos()"><span class="glyphicon glyphicon-list-alt"></span> Mis Eventos</a></li>
+		     <li><a ng-click="misEventos()"><span class="glyphicon glyphicon-list-alt"></span> Mis Eventos</a></li>
 		      <li><a href="../index.html"><span class="glyphicon glyphicon-log-in"></span> Cerrar Sesión</a></li>
         </ul>
       </div>
       <!--/.nav-collapse -->
     </div>
     <!--/.container-fluid -->
- </div> 
-  </div> 
+     </div>  
+</div>
   </nav>
 
+ <div class = "container ">
 	<h2 class="text-center color ">{{ vm.calendarTitle }}</h2>
 	<h2 class="text-center color">{{inter}} en {{lug}}</h2>
 
 		<div class="row">
 
 				<div class="col-md-3 text-center col-md-offset-1">
-	    			<label class="btn btn-primary btn-lg glyphicon glyphicon-search font" ng-click="buscarEvento()">  Volver a buscar</label>
+	    			<label class="btn btn-primary btn-lg glyphicon glyphicon-search font" ng-click="buscarEvento()"><span class="font">Volver a buscar</span></label>
 	    		</div>
 	
 	    <div class="col-md-4 text-center">
@@ -115,13 +117,10 @@
 	    </div>
 
 	    <div class="col-md-3 text-center">
-		       <label class="btn btn-success btn-lg glyphicon glyphicon-plus" ng-click="crearEvento()"> Añadir evento</label>
+		       <label class="btn btn-success btn-lg glyphicon glyphicon-plus" ng-click="crearEvento()"><span class="font"> Añadir evento</span></label>
 		    </div>
 
 	      </div>
-	    </div>
-	
-	  </div>
 
 	  <br>
 	
@@ -187,6 +186,6 @@
     
 </div>
 </div>
-
+</div>
   </body>
 </html>
