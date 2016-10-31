@@ -18,7 +18,8 @@ app.controller('controlador', ['$scope','$http', function($scope, $http) {
 				   return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
 			}
 			$scope.cancelar = function() {
-				location.href="../Calendario/calendario.html?categoria="+$scope.inter+"&lugar="+$scope.lug+"&email="+user;
+				location.href=history.go(-1);
+				//location.href="../Calendario/calendario.html?categoria="+$scope.inter+"&lugar="+$scope.lug+"&email="+user;
 			}
 			$scope.insertEvent = function() {
 				if($scope.crearEvento.$valid){

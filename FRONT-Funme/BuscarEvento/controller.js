@@ -46,16 +46,14 @@ app.controller('controlador', ['$scope','$http', function($scope, $http) {
 		   return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
 	}
 	$scope.buscarEvent = function() {
-		var data = [{"title":"mi evento creado","year":"2016","month":"09","day":"26","hour":"17","minute":"0"}];
-		var buscarEv = {
-				interes : "Deporte",
-				lugar : "Barcelona"
-			};
 		if($scope.buscarEvento.$valid){
 			location.href="../Calendario/calendario.html?categoria="+$scope.interes+"&lugar="+$scope.lugar+"&email="+user;
 		}	
 	}
 	$scope.misEventos = function(){
     	location.href="../MisEventos/MisEventos.html?email="+user;
+    }
+	$scope.crearEvento = function(){
+    	location.href="../CrearEvento/crearEvento.html?email="+user;
     }
 }]);
