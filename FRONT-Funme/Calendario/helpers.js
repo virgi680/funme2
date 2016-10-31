@@ -11,7 +11,6 @@ angular
 	          vm.action = action;
 	          vm.event = event;
 	          $scope.unirse = function(){
-	        	  console.log("UNIRSE");
 	        	  $http.post(url+'unirseAEvento?email='+vm.event.emailLogin+'&descripcion='+vm.event.descripcion+'&categoria='+vm.event.categoria+'&hora='+vm.event.hora+'&dia='+vm.event.dia+'&aforo='+vm.event.aforo+'&nombre='+vm.event.nombre+'&lugar='+vm.event.lugar)
 					.success(function(data) {
 						location.href="../MisEventos/MisEventos.html?email="+vm.event.emailLogin;
@@ -21,9 +20,27 @@ angular
 						//$("#err").modal();
 					});
 	          }
-	          $scope.ok = function(){
-	        	  location.href="../MisEventos/MisEventos.html?email="+vm.event.emailLogin;
+	          $scope.eliminarEv = function(){
+	        	  $http.post(url+'borrarEvento?email='+vm.event.emailLogin+'&hora='+vm.event.hora+'&dia='+vm.event.dia+'&nombre='+vm.event.nombre+'&lugar='+vm.event.lugar)
+					.success(function(data) {
+						location.href="../MisEventos/MisEventos.html?email="+vm.event.emailLogin;
+						//$("#ok").modal();
+					}).error(function(data) {
+						console.log("NO TE HAS UNIDO");
+						//$("#err").modal();
+					});
 	          }
+	          /*$scope.desunirse = function(){
+	        	//MODAL PARA PRGEUNTAR SI ES SEGURO QUE LO QUIERE ELIMINAR
+	        	  $http.post(url+'desunirseEvento?hora='+vm.event.hora+'&dia='+vm.event.dia+'&nombre='+vm.event.nombre+'&lugar='+vm.event.lugar)
+					.success(function(data) {
+						location.href="../MisEventos/MisEventos.html?email="+vm.event.emailLogin;
+						//$("#ok").modal();
+					}).error(function(data) {
+						console.log("NO TE HAS UNIDO");
+						//$("#err").modal();
+					});
+	          }*/
         },
         controllerAs: 'vm'
       });

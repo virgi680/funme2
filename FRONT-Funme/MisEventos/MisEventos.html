@@ -39,7 +39,6 @@
 
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-      <script  type="text/javascript" src="typeahead.bundle.js"></script>
  
 </head>
 
@@ -69,7 +68,12 @@
         </ul>
         <ul class="nav navbar-nav navbar-right menu ">
    
-		      <li><a ng-click="misEventos()"><span class="glyphicon glyphicon-list-alt"></span> Mis Eventos</a></li>
+		      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-list-alt"></span>Mis Eventos<span class="caret"></span></a>
+		      	<ul class="dropdown-menu">
+		      		<li><a ng-click="misEventos()">Creados</a></li>
+		      		<li><a ng-click="misEventos()">Unidos</a></li>
+		      	</ul>
+		      </li>
 		      <li><a href="../index.html"><span class="glyphicon glyphicon-log-in"></span> Cerrar Sesión</a></li>
         </ul>
       </div>
@@ -99,26 +103,26 @@
     <div class="col-md-8 ">
     
 
-  <div class="jumbotron list-group " ng-repeat="usuario in equipo" ng-hide="equipo.length == 0 || equipo.length == 0">
+  <div class="jumbotron list-group " ng-repeat="evento in eventos" ng-hide="eventos.length == 0 || eventos.length == 0">
 <div class="container espacio">
-              <h2>{{usuario.nombre}}</h2> 
+              <h2>{{evento.nombre}}</h2> 
                 </div>  
-              <a class="list-group-item">Nombre del evento: {{usuario.nombre}}</a>
-               <a  class="list-group-item">Email: {{usuario.creador}}</a>
-                <a class="list-group-item">Categoria: {{usuario.categoria}}</a>
-                <a class="list-group-item">Fecha: {{usuario.dia}} - {{usuario.hora}}</a>
-                  <a class="list-group-item">Lugar: {{usuario.lugar}}</a>
-                  <a class="list-group-item">Descripción: {{usuario.descripcion}}</a>
-                  <a class="list-group-item">Participantes: {{usuario.integrantes}}/{{usuario.aforo}}</a>
+              <a class="list-group-item">Nombre del evento: {{evento.nombre}}</a>
+               <a  class="list-group-item">Email: {{evento.creador}}</a>
+                <a class="list-group-item">Categoria: {{evento.categoria}}</a>
+                <a class="list-group-item">Fecha: {{evento.dia}} - {{usuario.hora}}</a>
+                  <a class="list-group-item">Lugar: {{evento.lugar}}</a>
+                  <a class="list-group-item">Descripción: {{evento.descripcion}}</a>
+                  <a class="list-group-item">Participantes: {{evento.integrantes}}/{{evento.aforo}}</a>
                   
-                  <button type="button" class="btn btn-default" ng-click="cancelarEv()" ng-hide="usuario.creador != usuario.email">Cancelar evento</button>
-                  <button type="button" class="btn btn-default" ng-click="DesunirEv()" ng-hide="usuario.creador == usuario.email">Desunirse</button>
+                  <button type="button" class="btn btn-default" ng-click="eliminarEv(evento)" ng-hide="evento.creador != evento.email">Eliminar evento</button>
+                  <button type="button" class="btn btn-default" ng-click="DesunirEv()" ng-hide="evento.creador == evento.email">Desunirse</button>
 </div>
 <br>
 <br>
 <br>
 <br>
-	<div class="jumbotron list-group" ng-hide="equipo.length != 0 || equipo.length != 0">
+	<div class="jumbotron list-group" ng-hide="eventos.length != 0 || eventos.length != 0">
 		<center>
 			<h2>No tienes ningún evento</h2> 
 	    </center>      

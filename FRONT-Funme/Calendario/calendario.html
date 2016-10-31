@@ -52,13 +52,14 @@
       </div>
       
       <div id="navbar9" class="navbar-collapse collapse">
-        <ul class="nav navbar-nav navbar-left">
-          <li class="active"><a href="#">Home</a></li>
-          <li><a href="#">About</a></li>
+        <ul class="nav navbar-nav navbar-left menu">
+       		<li><a ng-click="buscarEvento()"><span class="glyphicon glyphicon-search"></span> Buscar Eventos</a></li>
+
         </ul>
-        <ul class="nav navbar-nav navbar-right">
-          <li class="active"><a href="#">Home</a></li>
-          <li><a href="#">About</a></li>
+        <ul class="nav navbar-nav navbar-right menu ">
+   
+		      <li><a ng-click="misEventos()"><span class="glyphicon glyphicon-list-alt"></span> Mis Eventos</a></li>
+		      <li><a href="../index.html"><span class="glyphicon glyphicon-log-in"></span> Cerrar Sesión</a></li>
         </ul>
       </div>
       <!--/.nav-collapse -->

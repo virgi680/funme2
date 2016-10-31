@@ -4,10 +4,10 @@ var app = angular.module('app', [])
 app.controller('controlador', ['$scope','$http', function($scope, $http) {
 	var url = 'http://192.168.1.65:8080/funme/';
 	$scope.user = getParameterByName('email');
-	$scope.equipo = [];
+	$scope.eventos = [];
 	$http.get(url+'misEventos?email='+$scope.user)
 	.success(function(data) {
-		$scope.equipo = data;
+		$scope.eventos = data;
 	}).error(function(data) {
 		$("#err").modal();
 	});
@@ -22,5 +22,15 @@ app.controller('controlador', ['$scope','$http', function($scope, $http) {
     }
 	$scope.misEventos = function(){
     	location.href="MisEventos.html?email="+$scope.user;
+    }
+	$scope.eliminarEv = function(evento){
+  	  $http.post(url+'borrarEvento?email='+$scope.user+'&hora='+evento.hora+'&dia='+evento.dia+'&nombre='+evento.nombre+'&lugar='+evento.lugar)
+			.success(function(data) {
+				location.href="../MisEventos/MisEventos.html?email="+$scope.user;
+				//$("#ok").modal();
+			}).error(function(data) {
+				console.log("NO TE HAS UNIDO");
+				//$("#err").modal();
+			});
     }
 }]);

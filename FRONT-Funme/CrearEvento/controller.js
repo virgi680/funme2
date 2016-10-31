@@ -31,7 +31,7 @@ app.controller('controlador', ['$scope','$http', function($scope, $http) {
 						};
 					console.log($scope.dia);
 					insertarEv.dia = ("0" + $scope.dia.getDate()).slice(-2) + "/" + ("0" + ($scope.dia.getMonth()+1)).slice(-2)+ "/" + $scope.dia.getFullYear(); 
-					insertarEv.hora = $scope.hora.getHours() + ":" + $scope.hora.getMinutes();
+					insertarEv.hora = ("0" + $scope.hora.getHours()).slice(-2) + ":" + ("0" + $scope.hora.getMinutes()).slice(-2);
 					console.log(insertarEv.dia);
 					$http.post(url+'crearEvento?dia='+insertarEv.dia+'&hora='+insertarEv.hora+'&lugar='+$scope.lugar+'&nombre='+insertarEv.nombre+'&interes='+$scope.interes+'&descripcion='+insertarEv.descripcion+'&aforo='+insertarEv.aforo+'&email='+user)
 					.success(function(data) {

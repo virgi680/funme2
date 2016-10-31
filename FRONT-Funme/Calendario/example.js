@@ -10,7 +10,7 @@ angular
 		$scope.lug = getParameterByName('lugar');
 		$scope.user = getParameterByName('email');
 		
-			$http.get(url+'buscarEventos?categoria='+$scope.inter+'&lugar='+$scope.lug+'&email='+$scope.user)
+			$http.get(url+'buscarEventos?categoria='+$scope.inter+'&lugar='+$scope.lug)
 			.success(function(data) {
 				vm.events = [ /*{
 			        title: 'An event',
@@ -86,7 +86,7 @@ console.log(calendarConfig.colorTypes);
 
     vm.eventClicked = function(event) {
     	var dia = ("0" + event.startsAt.getDate()).slice(-2) + "/" + ("0" + (event.startsAt.getMonth()+1)).slice(-2)+ "/" + event.startsAt.getFullYear(); 
-		var hora = event.startsAt.getHours() + ":" + event.startsAt.getMinutes();
+		var hora = ("0" + event.startsAt.getHours()).slice(-2) + ":" + ("0" + event.startsAt.getMinutes()).slice(-2);
 
     	 $http.get(url+'informacionEvento?nombre='+event.title+'&lugar='+$scope.lug+'&dia='+dia+'&hora='+hora+'&email='+$scope.user)
 			.success(function(data) {
