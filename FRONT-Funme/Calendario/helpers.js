@@ -21,6 +21,7 @@ angular
 					});
 	          }
 	          $scope.eliminarEv = function(){
+	        	//MODAL PARA PRGEUNTAR SI ES SEGURO QUE LO QUIERE ELIMINAR
 	        	  $http.post(url+'borrarEvento?email='+vm.event.emailLogin+'&hora='+vm.event.hora+'&dia='+vm.event.dia+'&nombre='+vm.event.nombre+'&lugar='+vm.event.lugar)
 					.success(function(data) {
 						location.href="../MisEventos/MisEventos.html?email="+vm.event.emailLogin;

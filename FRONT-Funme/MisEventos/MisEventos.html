@@ -64,7 +64,7 @@
       <div id="navbar9" class="navbar-collapse collapse">
         <ul class="nav navbar-nav navbar-left menu">
        		<li><a ng-click="buscarEvento()"><span class="glyphicon glyphicon-search"></span> Buscar Eventos</a></li>
-
+			<li><a ng-click="crearEvento()"><span class="glyphicon glyphicon-search"></span> Crear Evento</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right menu ">
    
@@ -119,8 +119,8 @@
                   <a class="list-group-item">Descripción: {{evento.descripcion}}</a>
                   <a class="list-group-item">Participantes: {{evento.integrantes}}/{{evento.aforo}}</a>
                   
-                  <button type="button" class="btn btn-default" ng-click="eliminarEv(evento)" ng-hide="evento.creador != evento.email">Eliminar evento</button>
-                  <button type="button" class="btn btn-default" ng-click="DesunirEv()" ng-hide="evento.creador == evento.email">Desunirse</button>
+                  <button type="button" class="btn btn-default" ng-click="comprobarEv(evento,'eliminar')" ng-hide="evento.creador != evento.email">Eliminar evento</button>
+                  <button type="button" class="btn btn-default" ng-click="comprobarEv(evento,'desunir')" ng-hide="evento.creador == evento.email">Desunirse</button>
 </div>
 <br>
 <br>
@@ -137,7 +137,26 @@
     <div class="col-md-2 "></div>
   </div>
 </div>
-
+<div class="modal fade" id="borrar" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Alerta</h4>
+        </div>
+        <div class="modal-body">
+          <p ng-hide="eliminar == false">¿Está seguro que desea eliminar el evento?</p>
+          <p ng-hide="eliminar == true">¿Está seguro que desea desunirse del evento?</p>
+        </div>
+        <div class="modal-footer">
+          		<button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+          		<button type="button" class="btn btn-default" data-dismiss="modal" ng-click="eliminarEv()">Si</button>
+        </div>
+      </div>
+    
+</div>
+</div>
 
 </body>
 </html>

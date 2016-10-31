@@ -21,11 +21,15 @@ app.controller('controlador', ['$scope','$http', function($scope, $http) {
 	$scope.buscarEvento = function(){
     	location.href="../BuscarEvento/buscarEvento.html?email="+$scope.user;
     }
+	$scope.crearEvento = function(){
+    	location.href="../CrearEvento/crearEvento.html?email="+$scope.user;
+    }
 	$scope.misEventos = function(){
     	location.href="MisEventos.html?email="+$scope.user;
     }
-	$scope.eliminarEv = function(evento){
-  	  $http.post(url+'borrarEvento?email='+$scope.user+'&hora='+evento.hora+'&dia='+evento.dia+'&nombre='+evento.nombre+'&lugar='+evento.lugar)
+	$scope.eliminarEv = function(){
+		if($scope.eliminar == true){
+			$http.post(url+'borrarEvento?email='+$scope.user+'&hora='+$scope.borrarEv.hora+'&dia='+$scope.borrarEv.dia+'&nombre='+$scope.borrarEv.nombre+'&lugar='+$scope.borrarEv.lugar)
 			.success(function(data) {
 				location.href="../MisEventos/MisEventos.html?email="+$scope.user;
 				//$("#ok").modal();
@@ -33,6 +37,27 @@ app.controller('controlador', ['$scope','$http', function($scope, $http) {
 				console.log("NO TE HAS UNIDO");
 				//$("#err").modal();
 			});
+		}
+		else{
+			$http.post(url+'desunirseEvento?email='+$scope.user+'&hora='+$scope.borrarEv.hora+'&dia='+$scope.borrarEv.dia+'&nombre='+$scope.borrarEv.nombre+'&lugar='+$scope.borrarEv.lugar)
+			.success(function(data) {
+				location.href="../MisEventos/MisEventos.html?email="+$scope.user;
+				//$("#ok").modal();
+			}).error(function(data) {
+				console.log("NO TE HAS UNIDO");
+				//$("#err").modal();
+			});
+		}
+  	  
+    }
+	$scope.comprobarEv = function(evento, ev){
+		if(ev == "eliminar"){
+			$scope.eliminar = true;
+		}else{
+			$scope.eliminar = false;
+		}
+		$scope.borrarEv=evento;
+		$("#borrar").modal();
     }
 	$scope.events = function(evento){
 		$scope.eventos = [];
