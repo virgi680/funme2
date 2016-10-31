@@ -99,6 +99,14 @@
   transform-style: preserve-3d;
   height: 50px;
 }
+.sep{
+
+  margin-left: 55px;
+}
+.sepr{
+
+  margin-left: 450px;
+}
 .navbar-alignit .navbar-brand {
 	top: 50%;
 	display: block;

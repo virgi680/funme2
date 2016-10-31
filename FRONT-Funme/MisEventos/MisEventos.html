@@ -78,16 +78,13 @@
      </div>  
 </div>
   </nav>
-  
-    
 
 
-<div class="container  ">
-  <div class="row ">
-    <div class="col-md-2"></div>
-      <div class="color col-md-8 ">
-      	<div class="row">
-      	<div class="col-md-4 col-md-offset-4">
+ <div class = "container ">
+
+      	<div class="row color">
+   
+      	<div class="col-md-5 sepr">
 	        <h1>Mis Eventos</h1>
 	        <div class="btn-group">
 	        <button type="button" class="btn btn-default" ng-click="events('todos')">Todos</button>
@@ -95,22 +92,21 @@
 	        	<button type="button" class="btn btn-default" ng-click="events('unidos')">Unidos</button>
 	        </div>
 	        </div>
-        </div>
+       
       </div>
-    <div class="col-md-2"></div>
-  </div>
-</div>
+  
 
-<div class="container ">
-  <div class="row  ">
-    <div class="col-md-2 "></div>
-    <div class="col-md-8 ">
-    
+
+
+
+  <div class="row  ">    
 <br>
-  <div class="jumbotron list-group " ng-repeat="evento in eventos" ng-hide="eventos.length == 0 || eventos.length == 0">
-<div class="container espacio">
+
+  <div class=" container jumbotron col-md-5 sep " ng-repeat="evento in eventos" ng-hide="eventos.length == 0 || eventos.length == 0">
+
+			<div class="container espacio text-center">
               <h2>{{evento.nombre}}</h2> 
-                </div>  
+             </div>  
               <a class="list-group-item">Nombre del evento: {{evento.nombre}}</a>
                <a  class="list-group-item">Email: {{evento.creador}}</a>
                 <a class="list-group-item">Categoria: {{evento.categoria}}</a>
@@ -118,10 +114,13 @@
                   <a class="list-group-item">Lugar: {{evento.lugar}}</a>
                   <a class="list-group-item">Descripción: {{evento.descripcion}}</a>
                   <a class="list-group-item">Participantes: {{evento.integrantes}}/{{evento.aforo}}</a>
-                  
+                  <br>
+                 <center>
                   <button type="button" class="btn btn-default" ng-click="comprobarEv(evento,'eliminar')" ng-hide="evento.creador != evento.email">Eliminar evento</button>
                   <button type="button" class="btn btn-default" ng-click="comprobarEv(evento,'desunir')" ng-hide="evento.creador == evento.email">Desunirse</button>
+</center>
 </div>
+
 <br>
 <br>
 <br>
@@ -131,12 +130,9 @@
 			<h2>No tienes ningún evento</h2> 
 	    </center>      
 	</div>
-      
-</div>
-
-    <div class="col-md-2 "></div>
+    
   </div>
-</div>
+
 <div class="modal fade" id="borrar" role="dialog">
     <div class="modal-dialog">
     
@@ -157,6 +153,6 @@
     
 </div>
 </div>
-
+</div>
 </body>
 </html>
