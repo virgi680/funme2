@@ -80,26 +80,21 @@
   </nav>
 
 
- <div class = "container ">
-
-      	<div class="row color">
-   
-      	<div class="col-md-5 sepr">
-	        <h1>Mis Eventos</h1>
+ <div class = "container  ">
+   <center ><h1 class="color">Mis Eventos</h1>
 	        <div class="btn-group">
 	        <button type="button" class="btn btn-default" ng-click="events('todos')">Todos</button>
 	        	<button type="button" class="btn btn-default" ng-click="events('creados')">Creados</button>
 	        	<button type="button" class="btn btn-default" ng-click="events('unidos')">Unidos</button>
 	        </div>
-	        </div>
+	        
        
-      </div>
-  
+ </center>
+ 
 
 
 
-
-  <div class="row  ">    
+  <div class="row">    
 <br>
 
   <div class=" container jumbotron col-md-5 sep " ng-repeat="evento in eventos" ng-hide="eventos.length == 0 || eventos.length == 0">
@@ -111,12 +106,12 @@
                 <a class="list-group-item text-capitalize">Categoria: {{evento.categoria}}</a>
                 <a class="list-group-item">Fecha: {{evento.dia}} - {{evento.hora}}</a>
                   <a class="list-group-item text-capitalize">Lugar: {{evento.lugar}}</a>
-                  <a class="list-group-item">Descripción: {{evento.descripcion}}</a>
+                  <a class="list-group-item contenido">Descripción: {{evento.descripcion}}</a>
                   <a class="list-group-item">Participantes: {{evento.integrantes}}/{{evento.aforo}}</a>
                   <br>
                  <center>
-                  <button type="button" class="btn btn-default" ng-click="comprobarEv(evento,'eliminar')" ng-hide="evento.creador != evento.email">Eliminar evento</button>
-                  <button type="button" class="btn btn-default" ng-click="comprobarEv(evento,'desunir')" ng-hide="evento.creador == evento.email">Desunirse</button>
+                  <button type="button" class="btn btn-danger" ng-click="comprobarEv(evento,'eliminar')" ng-hide="evento.creador != evento.email"><span class="glyphicon glyphicon-trash"></span> Eliminar evento</button>
+                  <button type="button" class="btn btn-warning" ng-click="comprobarEv(evento,'desunir')" ng-hide="evento.creador == evento.email"><span class="glyphicon glyphicon-thumbs-down"></span> Desunirse</button>
 </center>
 </div>
 

@@ -60,7 +60,7 @@ app.controller('controlador', ['$scope','$http', function($scope, $http) {
 		$("#borrar").modal();
     }
 	$scope.events = function(evento){
-		$scope.eventos = [];
+		$scope.eventos =  [];
 	  	  if(evento == "creados"){
 	  		  for(var i in $scope.eventosTodos){
 	  			  if($scope.eventosTodos[i].creador == $scope.user){
