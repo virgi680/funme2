@@ -4,7 +4,6 @@ angular
   .controller('KitchenSinkCtrl', function(moment, alert, calendarConfig, $http, $scope) {
 	  calendarConfig.allDateFormats.angular.title.week = 'Semana {week} de {year}';
 	  calendarConfig.i18nStrings.weekNumber = 'Semana {week}';
-
 	  var url = 'http://192.168.1.65:8080/funme/';
 		$scope.inter = getParameterByName('categoria');
 		$scope.lug = getParameterByName('lugar');
@@ -18,10 +17,26 @@ angular
 			        startsAt: new Date(2016,10,30,15,0),
 			        actions: actions
 			      }*/];
-				for(var i in data){
+					for(var i in data){
+						var colorsito = calendarConfig.colorTypes.warning;
+						switch(data[i].categoria) {   // calendarConfig.colorTypes.(important:rojo, info:azul, inverse: negro, special: morado, success: verde, warning:amarillo
+					    case "Deportes":
+					        colorsito = calendarConfig.colorTypes.important;
+					        break;
+					    case "Idiomas":
+					        colorsito = calendarConfig.colorTypes.info;
+					        break;
+					    case "Cultura":
+					        colorsito = calendarConfig.colorTypes.success;
+					        break;
+					    default:
+					         colorsito = calendarConfig.colorTypes.warning;
+					      break;
+					}
 					var event = {
 							title : data[i].title,
 							startsAt : new Date(data[i].year, (data[i].month-1), data[i].day, data[i].hour, data[i].minute),
+							color: colorsito,
 							actions : actions
 					};
 					vm.events.push(event);
