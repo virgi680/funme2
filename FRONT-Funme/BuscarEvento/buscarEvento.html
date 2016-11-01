@@ -69,19 +69,21 @@
     </div>
     <!--/.container-fluid -->
      </div>  
-</div>
+
   </nav>
 
 
   <div class="container espacio">
   <div class="row ">
-  <div class="col-md-4 col-md-offset-2 color">
-  <br>
-            <h1>Buscar Evento</h1>      
+
+  <div class="container jumbotron myBackground ">
+    <div class="col-md-6  color ">
+    <br><br>
+         <h1>Buscar Eventos</h1>
     <p>Rellena los campos (Campos * obligatorios):</p>
     </div>
- <div class=" col-md-4 ">
-
+ <div class=" col-md-6">
+<br><br>
     
   <form name="buscarEvento">
 
@@ -105,7 +107,21 @@
 <center>
 	<button type="reset">Restablecer</button>
 	<button type="submit" ng-click="buscarEvent()">Buscar</button>
-	 <div class="modal fade" id="err" role="dialog">
+	
+    
+</div>
+</div>
+</center>
+</div>
+
+</form>
+</div>
+   </div> 
+
+  </div>
+</div>
+</div>
+ <div class="modal fade" id="err" role="dialog">
     <div class="modal-dialog">
     
       <!-- Modal content-->
@@ -120,19 +136,5 @@
           		<button type="button" class="btn btn-default" data-dismiss="modal" ng-click="cancelar()">Close</button>
         </div>
       </div>
-    
-</div>
-</div>
-</center>
-</div>
-
-</form>
-
-    </div>
-
-  </div>
-</div>
-
-
 </body>
 </html>
