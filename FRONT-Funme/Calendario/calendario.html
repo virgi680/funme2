@@ -77,7 +77,7 @@
 		<div class="row">
 
 				<div class="col-md-3 text-center col-md-offset-1">
-	    			<button type="button" class="btn btn-info btn-lg glyphicon glyphicon-zoom-in font espaciotop" data-toggle="modal" data-target="#myModal"><span class="font">Búsqueda por nombre</span></button>
+	    			<button type="button" class="btn btn-info btn-lg glyphicon glyphicon-filter font espaciotop" data-toggle="modal" data-target="#myModal"><span class="font"> Filtrar</span></button>
               <div id="myModal" class="modal fade" role="dialog">
                 <div class="modal-dialog">
                     <div class="modal-content">
@@ -86,12 +86,16 @@
                             <h4 class="modal-title">Búsqueda por nombre</h4>
                         </div>
                       <div class="modal-body">
+                      	<form>
                         <p>Introduzca el nombre del evento que desea buscar</p>
-                        <br>
-                      <form>
-                          Nombre del evento: <input type="text" name="evento" ng-model="evento">
-                          <button type="submit" ng-click="busquedaAvanzada()" data-dismiss="modal">Buscar</button><br>
-                      </form> 
+                        Nombre del evento: <input type="text" name="evento" ng-model="evento">
+                        <br><br>
+                        
+                          <div class="modal-footer">
+                          <button class="btn btn-primary btn-sm" type="submit" ng-click="busquedaAvanzada()" data-dismiss="modal"><span class="font"> Buscar</span></button>
+                          <button class="btn btn-primary btn-sm" ng-click="reset()">Restablecer</button><br>
+                          </div>
+                    	</form>
                       </div>
                     </div>
                 </div>

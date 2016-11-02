@@ -137,6 +137,9 @@ console.log(calendarConfig.colorTypes);
     $scope.misEventos = function(){
     	location.href="../MisEventos/MisEventos.html?email="+$scope.user;
     }
+    $scope.reset = function(){
+    	$scope.evento = "";
+    }
     $scope.busquedaAvanzada = function(){
         $http.get(url+'busquedaAvanzada?categoria='+$scope.inter+'&nombre='+$scope.evento+'&lugar='+$scope.lug)       
             .success(function(data) {
