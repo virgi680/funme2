@@ -97,11 +97,11 @@
   <div class="row">    
 <br>
 
-  <div class=" container jumbotron col-md-5 sep" ng-style="jumbo($index)" ng-repeat="evento in eventos" ng-hide="eventos.length == 0 || eventos.length == 0">
+  <div class="container panel panel-default col-md-5 sep" ng-style="jumbo($index)" ng-repeat="evento in eventos" ng-hide="eventos.length == 0 || eventos.length == 0">
 
-			<div class="container espacio text-center text-capitalize">
-              <h2>{{evento.nombre}}</h2> 
-             </div>  
+			
+              <h2 class="text-center text-capitalize">{{evento.nombre}}</h2> 
+             
                <a  class="list-group-item">Email del creador: {{evento.creador}}</a>
                 <a class="list-group-item text-capitalize">Categoria: {{evento.categoria}}</a>
                 <a class="list-group-item">Fecha: {{evento.dia}} - {{evento.hora}}</a>

@@ -14,15 +14,25 @@ angular
 				vm.events = [];
 					for(var i in data){
 						var colorsito = calendarConfig.colorTypes.warning;
+						console.log(colorsito);
 						switch(data[i].categoria) {
 					    case "deportes":
-					        colorsito = calendarConfig.colorTypes.important;
+					        colorsito = {
+					    		primary : '#8cd98c',
+					    		secondary : '#8cd98c'
+					    	}
 					        break;
 					    case "idiomas":
-					        colorsito = calendarConfig.colorTypes.info;
+					        colorsito = {
+						    		primary : '#cceeff',
+						    		secondary : '#cceeff'
+						    }
 					        break;
 					    case "cultura":
-					        colorsito = calendarConfig.colorTypes.success;
+					        colorsito = {
+						    		primary : '#ffc266',
+						    		secondary : '#ffc266'
+						    }
 					        break;
 					    default:
 					         colorsito = calendarConfig.colorTypes.warning;
