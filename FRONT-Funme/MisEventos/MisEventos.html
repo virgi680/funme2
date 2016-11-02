@@ -97,7 +97,7 @@
   <div class="row">    
 <br>
 
-  <div class=" container jumbotron col-md-5 sep " ng-repeat="evento in eventos" ng-hide="eventos.length == 0 || eventos.length == 0">
+  <div class=" container jumbotron col-md-5 sep" ng-style="jumbo($index)" ng-repeat="evento in eventos" ng-hide="eventos.length == 0 || eventos.length == 0">
 
 			<div class="container espacio text-center text-capitalize">
               <h2>{{evento.nombre}}</h2> 

@@ -9,6 +9,27 @@ app.controller('controlador', ['$scope','$http', function($scope, $http) {
 	.success(function(data) {
 		$scope.eventosTodos = data;
 		$scope.eventos = $scope.eventosTodos;
+			$scope.jumbo = function ($index){
+	  			
+				var colorsito = "white";
+				switch($scope.eventosTodos[$index].categoria) {   // calendarConfig.colorTypes.(important:rojo, info:azul, inverse: negro, special: morado, success: verde, warning:amarillo
+			    case "deportes":
+			        colorsito = "#8cd98c";
+			        break;
+			    case "idiomas":
+			        colorsito = "#66b3ff";
+			        break;
+			    case "Cultura":
+			        colorsito = "#ffc266";
+			        break;
+			    default:
+			         colorsito = calendarConfig.colorTypes.warning;
+			      break;
+			}
+			return {
+				"background-color": colorsito
+			}
+			}
 	}).error(function(data) {
 		$("#err").modal();
 	});
@@ -61,7 +82,29 @@ app.controller('controlador', ['$scope','$http', function($scope, $http) {
     }
 	$scope.events = function(evento){
 		$scope.eventos =  [];
+		
 		for(var i in $scope.eventosTodos){
+  			$scope.jumbo = function ($index){
+	  			
+				var colorsito = "white";
+				switch($scope.eventosTodos[$index].categoria) {   // calendarConfig.colorTypes.(important:rojo, info:azul, inverse: negro, special: morado, success: verde, warning:amarillo
+			    case "deportes":
+			        colorsito = "#8cd98c";
+			        break;
+			    case "idiomas":
+			        colorsito = "#66b3ff";
+			        break;
+			    case "Cultura":
+			        colorsito = "#ffc266";
+			        break;
+			    default:
+			         colorsito = calendarConfig.colorTypes.warning;
+			      break;
+			}
+			return {
+				"background-color": colorsito
+			}
+			}
             if(evento == "creados"){
             	if($scope.eventosTodos[i].creador == $scope.user){
                     $scope.eventos.push($scope.eventosTodos[i]);
