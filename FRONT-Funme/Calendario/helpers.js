@@ -10,6 +10,13 @@ angular
 	          var vm = this;
 	          vm.action = action;
 	          vm.event = event;
+	          var fechaActual = new Date();
+	          $scope.dia = ("0" + fechaActual.getDate()).slice(-2) + "/" + ("0" + (fechaActual.getMonth()+1)).slice(-2) + "/" + fechaActual.getFullYear();
+	          $scope.hora = ("0" + fechaActual.getHours()).slice(-2) + ":" + ("0" + fechaActual.getMinutes()).slice(-2);
+	          console.log($scope.dia);
+	          console.log($scope.hora);
+	          console.log(vm.event.dia);
+	          console.log(vm.event.hora);
 	          $scope.unirse = function(){
 	        	  $http.post(url+'unirseAEvento?email='+vm.event.emailLogin+'&descripcion='+vm.event.descripcion+'&categoria='+vm.event.categoria+'&hora='+vm.event.hora+'&dia='+vm.event.dia+'&aforo='+vm.event.aforo+'&nombre='+vm.event.nombre+'&lugar='+vm.event.lugar)
 					.success(function(data) {

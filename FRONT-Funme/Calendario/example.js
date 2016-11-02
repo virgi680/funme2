@@ -20,13 +20,13 @@ angular
 					for(var i in data){
 						var colorsito = calendarConfig.colorTypes.warning;
 						switch(data[i].categoria) {   // calendarConfig.colorTypes.(important:rojo, info:azul, inverse: negro, special: morado, success: verde, warning:amarillo
-					    case "Deportes":
+					    case "deportes":
 					        colorsito = calendarConfig.colorTypes.important;
 					        break;
-					    case "Idiomas":
+					    case "idiomas":
 					        colorsito = calendarConfig.colorTypes.info;
 					        break;
-					    case "Cultura":
+					    case "cultura":
 					        colorsito = calendarConfig.colorTypes.success;
 					        break;
 					    default:

@@ -32,7 +32,7 @@
       </div>
       <div class="modal-footer">
         <button class="btn btn-default" ng-click="$close()">Cancelar</button>
-        <button class="btn btn-success" ng-click="unirse()" ng-disabled="vm.event.participantes === vm.event.aforo" ng-hide="vm.event.emailLogin === vm.event.creador || vm.event.unido === 'SI'"><span class="glyphicon glyphicon-thumbs-up"></span> Unirse</button>
+        <button class="btn btn-success" ng-click="unirse()" ng-disabled="vm.event.participantes === vm.event.aforo || (vm.event.dia < dia || (vm.event.dia == dia && vm.event.hora < hora))" ng-hide="vm.event.emailLogin === vm.event.creador || vm.event.unido === 'SI'"><span class="glyphicon glyphicon-thumbs-up"></span> Unirse</button>
 		<button class="btn btn-warning" ng-click="desunirse()" ng-hide="vm.event.unido !== 'SI' || vm.event.emailLogin === vm.event.creador"><span class="glyphicon glyphicon-thumbs-down"></span> Desunirse</button>
 		<button class="btn btn-danger" ng-click="eliminarEv()" ng-hide="vm.event.emailLogin !== vm.event.creador "><span class="glyphicon glyphicon-trash"></span> Eliminar Evento</button>      	
       </div>
