@@ -61,26 +61,22 @@ app.controller('controlador', ['$scope','$http', function($scope, $http) {
     }
 	$scope.events = function(evento){
 		$scope.eventos =  [];
-	  	  if(evento == "creados"){
-	  		  for(var i in $scope.eventosTodos){
-	  			  if($scope.eventosTodos[i].creador == $scope.user){
-	  				$scope.eventos.push($scope.eventosTodos[i]);
-	  			  }
-	  		  }
-	  	  }
-	  	  else{
-	  		 if(evento == "unidos"){
-	  			for(var i in $scope.eventosTodos){
-		  			  if($scope.eventosTodos[i].creador != $scope.user){
-		  				$scope.eventos.push($scope.eventosTodos[i]);
-		  			  }
-		  		  }
-	  		 }
-	  		 else{
-	  			for(var i in $scope.eventosTodos){
-	  				$scope.eventos.push($scope.eventosTodos[i]);
-	  			}
-	  		 }
-	  	  }
+		for(var i in $scope.eventosTodos){
+            if(evento == "creados"){
+            	if($scope.eventosTodos[i].creador == $scope.user){
+                    $scope.eventos.push($scope.eventosTodos[i]);
+            	}
+            }
+            else{
+                if(evento == "unidos"){
+                	if($scope.eventosTodos[i].creador != $scope.user){
+                        $scope.eventos.push($scope.eventosTodos[i]);
+                	}
+                }
+                else{
+                    $scope.eventos.push($scope.eventosTodos[i]);
+                }
+            }
+        }
 	}
 }]);

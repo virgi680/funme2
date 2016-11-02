@@ -11,15 +11,10 @@ angular
 		
 			$http.get(url+'buscarEventos?categoria='+$scope.inter+'&lugar='+$scope.lug)
 			.success(function(data) {
-				vm.events = [ /*{
-			        title: 'An event',
-			        color: calendarConfig.colorTypes.warning,
-			        startsAt: new Date(2016,10,30,15,0),
-			        actions: actions
-			      }*/];
+				vm.events = [];
 					for(var i in data){
 						var colorsito = calendarConfig.colorTypes.warning;
-						switch(data[i].categoria) {   // calendarConfig.colorTypes.(important:rojo, info:azul, inverse: negro, special: morado, success: verde, warning:amarillo
+						switch(data[i].categoria) {
 					    case "deportes":
 					        colorsito = calendarConfig.colorTypes.important;
 					        break;
@@ -50,37 +45,8 @@ console.log(calendarConfig.colorTypes);
     //These variables MUST be set as a minimum for the calendar to work
     vm.calendarView = 'month';
     vm.viewDate = new Date();
-    var actions = [/*{
-      label: '<span class="glyphicon glyphicon-search" </span>',
-      onClick: function(args) {
-    	  $http.get(url+'informacionEvento?nombre='+args.calendarEvent.title+'&lugar='+$scope.lug)
-			.success(function(data) {
-				data.emailLogin = $scope.user;
-				alert.show('Clicked', data);
-			}).error(function(data) {
-				$("#err").modal();
-			});
-        
-      }
-    }*/];
-    /*vm.events =  [{
-        title: 'An event',
-        color: calendarConfig.colorTypes.warning,
-        startsAt: new Date(2016,9,30,15,0),
-        actions: actions
-      },{
-          title: 'asasdsd',
-          color: calendarConfig.colorTypes.warning,
-          startsAt: new Date(2016,9,2,17,0),
-          actions: actions
-        },
-        {
-            title: 'Aasdddsdast',
-            color: calendarConfig.colorTypes.warning,
-            startsAt: new Date(2016,9,15,18,0),
-            actions: actions
-          }];*/
-  
+    var actions = [];
+
     function getParameterByName(name) {
 		   name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
 		   var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
@@ -161,5 +127,37 @@ console.log(calendarConfig.colorTypes);
     $scope.misEventos = function(){
     	location.href="../MisEventos/MisEventos.html?email="+$scope.user;
     }
-
+    $scope.busquedaAvanzada = function(){
+        $http.get(url+'busquedaAvanzada?categoria='+$scope.inter+'&nombre='+$scope.evento+'&lugar='+$scope.lug)       
+            .success(function(data) {
+              console.log("ha entrado");
+                vm.events = [];
+                for(var i in data){
+					var colorsito = calendarConfig.colorTypes.warning;
+					switch(data[i].categoria) {
+				    case "deportes":
+				        colorsito = calendarConfig.colorTypes.important;
+				        break;
+				    case "idiomas":
+				        colorsito = calendarConfig.colorTypes.info;
+				        break;
+				    case "cultura":
+				        colorsito = calendarConfig.colorTypes.success;
+				        break;
+				    default:
+				         colorsito = calendarConfig.colorTypes.warning;
+				      break;
+				}
+				var event = {
+						title : data[i].title,
+						startsAt : new Date(data[i].year, (data[i].month-1), data[i].day, data[i].hour, data[i].minute),
+						color: colorsito,
+						actions : actions
+				};
+				vm.events.push(event);
+			}
+            }).error(function(data) {
+              $("#err").modal();
+            });
+        }
   });

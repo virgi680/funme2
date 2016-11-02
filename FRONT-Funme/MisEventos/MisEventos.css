@@ -40,7 +40,7 @@
 
 }
 .contenido{
-  height: 125px;
+  height: 80px;
   overflow: hidden;
   text-overflow: ellipsis;
 }

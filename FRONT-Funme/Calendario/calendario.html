@@ -77,8 +77,26 @@
 		<div class="row">
 
 				<div class="col-md-3 text-center col-md-offset-1">
-	    			<label class="btn btn-primary btn-lg glyphicon glyphicon-search font" ng-click="buscarEvento()"><span class="font">Volver a buscar</span></label>
-	    		</div>
+	    			<button type="button" class="btn btn-info btn-lg glyphicon glyphicon-zoom-in font espaciotop" data-toggle="modal" data-target="#myModal"><span class="font">Búsqueda por nombre</span></button>
+              <div id="myModal" class="modal fade" role="dialog">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Búsqueda por nombre</h4>
+                        </div>
+                      <div class="modal-body">
+                        <p>Introduzca el nombre del evento que desea buscar</p>
+                        <br>
+                      <form>
+                          Nombre del evento: <input type="text" name="evento" ng-model="evento">
+                          <button type="submit" ng-click="busquedaAvanzada()" data-dismiss="modal">Buscar</button><br>
+                      </form> 
+                      </div>
+                    </div>
+                </div>
+              </div>
+              </div>
 	
 	    <div class="col-md-4 text-center">
 	      <div class="btn-group" align="center"> 
