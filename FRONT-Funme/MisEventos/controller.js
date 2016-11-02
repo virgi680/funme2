@@ -14,10 +14,10 @@ app.controller('controlador', ['$scope','$http', function($scope, $http) {
 				var colorsito = "white";
 				switch($scope.eventos[$index].categoria) {   // calendarConfig.colorTypes.(important:rojo, info:azul, inverse: negro, special: morado, success: verde, warning:amarillo
 			    case "deportes":
-			        colorsito = "#b3ffb3";
+			        colorsito = "#5cd65c";
 			        break;
 			    case "idiomas":
-			        colorsito = "#cceeff";
+			        colorsito = "#66c2ff";
 			        break;
 			    case "cultura":
 			        colorsito = "#ffc266";
@@ -104,10 +104,10 @@ app.controller('controlador', ['$scope','$http', function($scope, $http) {
 			var colorsito = "white";
 			switch($scope.eventos[$index].categoria) {
 		    case "deportes":
-		        colorsito = "#b3ffb3";
+		        colorsito = "#5cd65c";
 		        break;
 		    case "idiomas":
-		        colorsito = "#cceeff";
+		        colorsito = "#66c2ff";
 		        break;
 		    case "cultura":
 		        colorsito = "#ffc266";

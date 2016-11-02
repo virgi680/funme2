@@ -57,18 +57,18 @@
       </div>
       
       <div class="brand-centered">
-      <a class="navbar-brand" href="../index.html"><img style=" width: 50px; height: 56px; padding: 0px;" src="../IMG/LogoFunMe.png" alt="logo">
+      <a class="navbar-brand"><img style=" width: 50px; height: 56px; padding: 0px;" src="../IMG/LogoFunMe.png" alt="logo">
       </a>
       </div>
       
       <div id="navbar9" class="navbar-collapse collapse">
         <ul class="nav navbar-nav navbar-left menu">
-       		<li><a ng-click="buscarEvento()"><span class="glyphicon glyphicon-search"></span> Buscar Eventos</a></li>
-			<li><a ng-click="crearEvento()"><span class="glyphicon glyphicon-plus"></span> Crear Evento</a></li>
+       		<li><a href="" ng-click="buscarEvento()"><span class="glyphicon glyphicon-search"></span> Buscar Eventos</a></li>
+			<li><a href="" ng-click="crearEvento()"><span class="glyphicon glyphicon-plus"></span> Crear Evento</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right menu ">
    
-		     <li><a ng-click="misEventos()"><span class="glyphicon glyphicon-list-alt"></span> Mis Eventos</a></li>
+		     <li><a href="" ng-click="misEventos()"><span class="glyphicon glyphicon-list-alt"></span> Mis Eventos</a></li>
 		      <li><a href="../index.html"><span class="glyphicon glyphicon-log-in"></span> Cerrar Sesión</a></li>
         </ul>
       </div>
@@ -113,6 +113,7 @@
                   <button type="button" class="btn btn-danger" ng-click="comprobarEv(evento,'eliminar')" ng-hide="evento.creador != evento.email"><span class="glyphicon glyphicon-trash"></span> Eliminar evento</button>
                   <button type="button" class="btn btn-warning" ng-click="comprobarEv(evento,'desunir')" ng-hide="evento.creador == evento.email"><span class="glyphicon glyphicon-thumbs-down"></span> Desunirse</button>
 </center>
+<br>
 </div>
 
 <br>

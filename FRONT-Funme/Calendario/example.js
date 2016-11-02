@@ -18,14 +18,14 @@ angular
 						switch(data[i].categoria) {
 					    case "deportes":
 					        colorsito = {
-					    		primary : '#8cd98c',
-					    		secondary : '#8cd98c'
+					    		primary : '#5cd65c',
+					    		secondary : '#5cd65c'
 					    	}
 					        break;
 					    case "idiomas":
 					        colorsito = {
-						    		primary : '#cceeff',
-						    		secondary : '#cceeff'
+						    		primary : '#66c2ff',
+						    		secondary : '#66c2ff'
 						    }
 					        break;
 					    case "cultura":
@@ -146,13 +146,22 @@ console.log(calendarConfig.colorTypes);
 					var colorsito = calendarConfig.colorTypes.warning;
 					switch(data[i].categoria) {
 				    case "deportes":
-				        colorsito = calendarConfig.colorTypes.important;
+				        colorsito = {
+					    		primary : '#5cd65c',
+					    		secondary : '#5cd65c'
+					    	}
 				        break;
 				    case "idiomas":
-				        colorsito = calendarConfig.colorTypes.info;
+				        colorsito = {
+					    		primary : '#66c2ff',
+					    		secondary : '#66c2ff'
+					    }
 				        break;
 				    case "cultura":
-				        colorsito = calendarConfig.colorTypes.success;
+				        colorsito = {
+					    		primary : '#ffc266',
+					    		secondary : '#ffc266'
+					    }
 				        break;
 				    default:
 				         colorsito = calendarConfig.colorTypes.warning;
