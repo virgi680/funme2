@@ -122,6 +122,8 @@ app.controller('controlador', ['$scope','$http', function($scope, $http) {
 		      break;
 			}
 			return {
+				"background": "url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAIklEQVQYV2NkQAIrVqz4zwjjgzgRERGMYAEYB8RmROaABADcrQ78p1zpcgAAAABJRU5ErkJggg==)",
+				 " background-repeat": "repeat",
 				"background-color": colorsito
 			}
 		}
