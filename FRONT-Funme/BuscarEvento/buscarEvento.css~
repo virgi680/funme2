@@ -1,0 +1,125 @@
+    
+ .colorsito
+{
+
+
+	  background-image: url(../IMG/basul.jpg);
+
+	  background-position: center center;
+
+	  background-repeat: no-repeat;
+
+	  background-attachment: fixed;
+
+	  background-size: cover;
+
+	  background-color: #464646;
+	
+}
+
+.myBackground {
+  background-color: rgba(255,255,255, 0.3);
+  color: inherit;
+}
+
+.color {
+	color: white;
+}
+.espacio {
+	margin-top: 120px;
+}
+
+
+.typeahead, .tt-query, .tt-hint {
+	border-radius: 4px;
+	height: 32px;
+	line-height: 30px;
+	outline: medium none;
+	padding: 8px 12px;
+	width: 495px;
+}
+.typeahead {
+	background-color: #FFFFFF;
+}
+.typeahead:focus {
+	border: 2px solid #0097CF;
+}
+.tt-query {
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+}
+.tt-hint {
+	color: #999999;
+}
+.tt-menu {
+	background-color: #FFFFFF;
+	border: 1px solid rgba(0, 0, 0, 0.2);
+	border-radius: 8px;
+	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+	margin-top: 1px;
+	padding: 8px 0;
+	width: 495px;
+}
+.tt-suggestion {
+	padding: 3px 20px;
+}
+.tt-suggestion:hover {
+	cursor: pointer;
+	background-color: #0097CF;
+	color: #ffffff;
+}
+.tt-suggestion p {
+	margin: 0;
+}
+.derecha {
+	margin-right: 20px;
+}
+ .navbar-brand {
+  padding: 0px;
+}
+.navbar-brand>img {
+  height: 100%;
+  padding: 15px;
+ 
+}
+.brand-centered {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  width: 100%;
+  left: 0;
+  top: 0;
+}
+.brand-centered .navbar-brand {
+  display: flex;
+  align-items: center;
+}
+
+/* CSS Transform Align Navbar Brand Text ... This could also be achieved with table / table-cells */
+.navbar-alignit .navbar-header {
+	  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  height: 50px;
+}
+
+.navbar-alignit .navbar-brand {
+	top: 50%;
+	display: block;
+	position: relative;
+	height: auto;
+	transform: translate(0,-50%);
+	margin-right: 5px;
+  margin-left: 5px;
+}
+.menu{
+		margin-right: -100px;
+  margin-left: -100px;
+}
+.navbar-nav>li>.dropdown-menu {
+	z-index: 9999;
+}
+.font {
+  font-family: 'Century Gothic', sans-serif;
+  font-weight: 200;
+  letter-spacing: 1px;
+}
